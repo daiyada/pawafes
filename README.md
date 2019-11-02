@@ -19,19 +19,19 @@
 |user|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- has_one :1st-round
-- has_one :1st-round_record
-- has_one :2nd-round
-- has_one :2nd-round_record
-- has_one :3rd-round
-- has_one :3rd-round_record
-- has_one :4th-round
-- has_one :4th-round_record
-- has_one :semi-final-round
-- has_one :semi-final-round_record
-- has_one :final-round
-- has_one :final-round_record
-- has_one :total
+- has_one :1st-round, dependent: :destroy
+- has_one :1st-round_record, dependent: :destroy
+- has_one :2nd-round, dependent: :destroy
+- has_one :2nd-round_record, dependent: :destroy
+- has_one :3rd-round, dependent: :destroy
+- has_one :3rd-round_record, dependent: :destroy
+- has_one :4th-round, dependent: :destroy
+- has_one :4th-round_record, dependent: :destroy
+- has_one :semi-final-round, dependent: :destroy
+- has_one :semi-final-round_record, dependent: :destroy
+- has_one :final-round, dependent: :destroy
+- has_one :final-round_record, dependent: :destroy
+- has_one :total, dependent: :destroy
 
 ## 1st-roundsテーブル
 |Column|Type|Options|
