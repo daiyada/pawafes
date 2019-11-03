@@ -1,1 +1,13 @@
-hello world!
+.wrapper
+  .wrapper__top
+    = link_to new_user_registration_path, class:"new_user_registration" do
+      新規登録
+    = link_to new_user_session_path, class:"new_user_session" do
+      ログイン
+  .wrapper__content
+    パワフェス
+    .game_start
+      - if user_signed_in?
+        = link_to new_player_path, class:"new_player" do
+          ゲームスタート
+
