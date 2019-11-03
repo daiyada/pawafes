@@ -19,21 +19,21 @@
 |user|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- has_one :1st-round, dependent: :destroy
-- has_one :1st-round_record, dependent: :destroy
-- has_one :2nd-round, dependent: :destroy
-- has_one :2nd-round_record, dependent: :destroy
-- has_one :3rd-round, dependent: :destroy
-- has_one :3rd-round_record, dependent: :destroy
-- has_one :4th-round, dependent: :destroy
-- has_one :4th-round_record, dependent: :destroy
-- has_one :semi-final-round, dependent: :destroy
-- has_one :semi-final-round_record, dependent: :destroy
-- has_one :final-round, dependent: :destroy
-- has_one :final-round_record, dependent: :destroy
-- has_one :total, dependent: :destroy
+- has_one :first_round, dependent: :destroy
+- has_one :first_round_record, dependent: :destroy
+- has_one :second_round, dependent: :destroy
+- has_one :second_round_record, dependent: :destroy
+- has_one :third_round, dependent: :destroy
+- has_one :third_round_record, dependent: :destroy
+- has_one :fourth_round, dependent: :destroy
+- has_one :fourth_round_record, dependent: :destroy
+- has_one :semi_final_round, dependent: :destroy
+- has_one :semi_final_round_record, dependent: :destroy
+- has_one :final_round, dependent: :destroy
+- has_one :final_round_record, dependent: :destroy
+- has_one :total_record, dependent: :destroy
 
-## 1st-roundsテーブル
+## first_roundsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |opponent|string|null: false|
@@ -44,11 +44,11 @@
 |player|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :player
-- has_one :1st-round_team
+- has_one :first_round_team
 - has_one :manager
 - has_one :point
 
-## 1st-round_recordsテーブル
+## first_round_recordsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |muscle|integer|null: false|
@@ -57,8 +57,8 @@
 |change|integer|null: false|
 |spirit|integer|null: false|
 |hit|integer|null: false|
-|2base_hit|integer|null: false|
-|3base_hit|integer|null: false|
+|second_base_hit|integer|null: false|
+|third_base_hit|integer|null: false|
 |home_run|integer|null: false|
 |sacrifice_bunt|integer|null: false|
 |sacrifice_fly|integer|null: false|
@@ -74,65 +74,15 @@
 ### Association
 - belongs_to :player
 
-## 1st-round_teamsテーブル
+## first_round_teamsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 |base_point|integer|null: false|
 ### Association
-- belongs_to :1st-round
+- belongs_to :first_round
 
-## 2nd-roundsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|opponent|string|null: false|
-|manager|string|null: false|
-|point_difference|integer|null: false|
-|lost_point|integer|null: false|
-|horisugi_doll|string|null: false|
-|climate|string|null: false|
-|player|references|null: false, foreign_key: true|
-### Association
-- belongs_to :player
-- has_one :2nd-round_team
-- has_one :manager
-- has_one :point
-
-## 2nd-round_recordsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|muscle|integer|null: false|
-|agile|integer|null: false|
-|technique|integer|null: false|
-|change|integer|null: false|
-|spirit|integer|null: false|
-|hit|integer|null: false|
-|2base_hit|integer|null: false|
-|3base_hit|integer|null: false|
-|home_run|integer|null: false|
-|sacrifice_bunt|integer|null: false|
-|sacrifice_fly|integer|null: false|
-|steal|integer|null: false|
-|pitch|integer|null: false|
-|straight_ball_out|integer|null: false|
-|change_ball_out|integer|null: false|
-|strike_out|integer|null: false|
-|fly-liner_out|integer|null: false|
-|roller|integer|null: false|
-|double_play|integer|null: false|
-|player|references|null: false, foreign_key: true|
-### Association
-- belongs_to :2nd-round
-
-## 2nd-round_teamsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-|base_point|integer|null: false|
-### Association
-- belongs_to :player
-
-## 3rd-roundsテーブル
+## second_roundsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |opponent|string|null: false|
@@ -144,11 +94,11 @@
 |player|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :player
-- has_one :3rd-round_team
+- has_one :second_round_team
 - has_one :manager
 - has_one :point
 
-## 3rd-round_recordsテーブル
+## second_round_recordsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |muscle|integer|null: false|
@@ -157,8 +107,8 @@
 |change|integer|null: false|
 |spirit|integer|null: false|
 |hit|integer|null: false|
-|2base_hit|integer|null: false|
-|3base_hit|integer|null: false|
+|second_base_hit|integer|null: false|
+|third_base_hit|integer|null: false|
 |home_run|integer|null: false|
 |sacrifice_bunt|integer|null: false|
 |sacrifice_fly|integer|null: false|
@@ -172,17 +122,17 @@
 |double_play|integer|null: false|
 |player|references|null: false, foreign_key: true|
 ### Association
-- belongs_to :player
+- belongs_to :second_round
 
-## 3rd-round_teamsテーブル
+## second_round_teamsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 |base_point|integer|null: false|
 ### Association
-- belongs_to :3rd-round
+- belongs_to :player
 
-## 4th-roundsテーブル
+## third_roundsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |opponent|string|null: false|
@@ -194,11 +144,61 @@
 |player|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :player
-- has_one :4th-round_team
+- has_one :third_round_team
 - has_one :manager
 - has_one :point
 
-## 4th-round_recordsテーブル
+## third_round_recordsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|muscle|integer|null: false|
+|agile|integer|null: false|
+|technique|integer|null: false|
+|change|integer|null: false|
+|spirit|integer|null: false|
+|hit|integer|null: false|
+|second_base_hit|integer|null: false|
+|third_base_hit|integer|null: false|
+|home_run|integer|null: false|
+|sacrifice_bunt|integer|null: false|
+|sacrifice_fly|integer|null: false|
+|steal|integer|null: false|
+|pitch|integer|null: false|
+|straight_ball_out|integer|null: false|
+|change_ball_out|integer|null: false|
+|strike_out|integer|null: false|
+|fly-liner_out|integer|null: false|
+|roller|integer|null: false|
+|double_play|integer|null: false|
+|player|references|null: false, foreign_key: true|
+### Association
+- belongs_to :player
+
+## third_round_teamsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|base_point|integer|null: false|
+### Association
+- belongs_to :third_round
+
+## fourth_roundsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|opponent|string|null: false|
+|manager|string|null: false|
+|point_difference|integer|null: false|
+|lost_point|integer|null: false|
+|horisugi_doll|string|null: false|
+|climate|string|null: false|
+|player|references|null: false, foreign_key: true|
+### Association
+- belongs_to :player
+- has_one :fourth_round_team
+- has_one :manager
+- has_one :point
+
+## fourth_round_recordsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |muscle|integer|null: false|
@@ -224,15 +224,15 @@
 ### Association
 - belongs_to :player
 
-## 4th-round_teamsテーブル
+## fourth_round_teamsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 |base_point|integer|null: false|
 ### Association
-- belongs_to :4th-round
+- belongs_to :fourth_round
 
-## semi-final-roundsテーブル
+## semi_final_roundsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |opponent|string|null: false|
@@ -243,11 +243,11 @@
 |player|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :player
-- has_one :semi-final-round_team
+- has_one :semi_final_round_team
 - has_one :manager
 - has_one :point
 
-## semi-final-round_recordsテーブル
+## semi_final_round_recordsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |muscle|integer|null: false|
@@ -256,8 +256,8 @@
 |change|integer|null: false|
 |spirit|integer|null: false|
 |hit|integer|null: false|
-|2base_hit|integer|null: false|
-|3base_hit|integer|null: false|
+|second_base_hit|integer|null: false|
+|third_base_hit|integer|null: false|
 |home_run|integer|null: false|
 |sacrifice_bunt|integer|null: false|
 |sacrifice_fly|integer|null: false|
@@ -273,15 +273,15 @@
 ### Association
 - belongs_to :player
 
-## semi-final-round_teamsテーブル
+## semi_final_round_teamsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 |base_point|integer|null: false|
 ### Association
-- belongs_to :semi-final-round
+- belongs_to :semi_final_round
 
-## final-roundsテーブル
+## final_roundsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |opponent|string|null: false|
@@ -292,11 +292,11 @@
 |player|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :player
-- has_one :final-round_team
+- has_one :final_round_team
 - has_one :manager
 - has_one :point
 
-## final-round_recordsテーブル
+## final_round_recordsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |muscle|integer|null: false|
@@ -305,8 +305,8 @@
 |change|integer|null: false|
 |spirit|integer|null: false|
 |hit|integer|null: false|
-|2base_hit|integer|null: false|
-|3base_hit|integer|null: false|
+|second_base_hit|integer|null: false|
+|third_base_hit|integer|null: false|
 |home_run|integer|null: false|
 |sacrifice_bunt|integer|null: false|
 |sacrifice_fly|integer|null: false|
@@ -315,20 +315,20 @@
 |straight_ball_out|integer|null: false|
 |change_ball_out|integer|null: false|
 |strike_out|integer|null: false|
-|fly-liner_out|integer|null: false|
+|fly_liner_out|integer|null: false|
 |roller|integer|null: false|
 |double_play|integer|null: false|
 |player|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :player
 
-## final-round_teamsテーブル
+## final_round_teamsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 |base_point|integer|null: false|
 ### Association
-- belongs_to :final-round
+- belongs_to :final_round
 
 ## total_recordsテーブル
 |Column|Type|Options|
@@ -339,8 +339,8 @@
 |change|integer|null: false|
 |spirit|integer|null: false|
 |hit|integer|null: false|
-|2base_hit|integer|null: false|
-|3base_hit|integer|null: false|
+|second_base_hit|integer|null: false|
+|third_base_hit|integer|null: false|
 |home_run|integer|null: false|
 |sacrifice_bunt|integer|null: false|
 |sacrifice_fly|integer|null: false|
@@ -366,12 +366,12 @@
 |change_coefficient|integer|null: false|
 |spirit_coefficient|integer|null: false|
 ### Association
-- belongs_to :1st-round
-- belongs_to :2nd-round
-- belongs_to :3rd-round
-- belongs_to :4th-round
-- belongs_to :semi-final-round
-- belongs_to :final-round
+- belongs_to :first_round
+- belongs_to :second_round
+- belongs_to :third_round
+- belongs_to :fourth_round
+- belongs_to :semi_final_round
+- belongs_to :final_round
 
 ## pointsテーブル
 |Column|Type|Options|
@@ -382,9 +382,9 @@
 |change|integer|null: false|
 |spirit|integer|null: false|
 ### Association
-- belongs_to :1st-round
-- belongs_to :2nd-round
-- belongs_to :3rd-round
-- belongs_to :4th-round
-- belongs_to :semi-final-round
-- belongs_to :final-round
+- belongs_to :first-round
+- belongs_to :second-round
+- belongs_to :third-round
+- belongs_to :fourth-round
+- belongs_to :semi_final_round
+- belongs_to :final_round

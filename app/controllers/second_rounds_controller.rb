@@ -1,0 +1,2 @@
+class SecondRoundsController < ApplicationController
+end
