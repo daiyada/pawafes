@@ -1,1 +1,21 @@
-1回線
+.first-round-wrap
+  1回線
+  ユーザー名
+  = current_user.nickname
+  選手名
+  = @player.name
+  レベル
+  = @player.level
+  .first-round-wrap__content
+    試合前設定
+    = form_with url: player_first_rounds_path(@player), method: :post do |f|
+      相手チーム
+      = f.select :opponent, @FirstRoundTeams
+      マネージャー
+      = f.select :manager, @managers
+      掘杉くん人形
+      = f.select :horisugi_doll do
+        %option 有
+        %option 無
+      = f.submit :"設定する"
+  
