@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2019_11_02_114947) do
     t.string "opponent", null: false
     t.string "manager", null: false
     t.integer "point_difference", null: false
-    t.integer "list_point", null: false
+    t.integer "lost_point", null: false
     t.string "horisugi_doll", null: false
     t.bigint "player_id", null: false
     t.datetime "created_at", null: false
@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 2019_11_02_114947) do
     t.string "opponent", null: false
     t.string "manager", null: false
     t.integer "point_difference", null: false
-    t.integer "list_point", null: false
+    t.integer "lost_point", null: false
     t.string "horisugi_doll", null: false
     t.bigint "player_id", null: false
     t.datetime "created_at", null: false
@@ -139,7 +139,7 @@ ActiveRecord::Schema.define(version: 2019_11_02_114947) do
     t.string "opponent", null: false
     t.string "manager", null: false
     t.integer "point_difference", null: false
-    t.integer "list_point", null: false
+    t.integer "lost_point", null: false
     t.string "horisugi_doll", null: false
     t.string "climate", null: false
     t.bigint "player_id", null: false
@@ -219,7 +219,7 @@ ActiveRecord::Schema.define(version: 2019_11_02_114947) do
     t.string "opponent", null: false
     t.string "manager", null: false
     t.integer "point_difference", null: false
-    t.integer "list_point", null: false
+    t.integer "lost_point", null: false
     t.string "horisugi_doll", null: false
     t.string "climate", null: false
     t.bigint "player_id", null: false
@@ -265,7 +265,7 @@ ActiveRecord::Schema.define(version: 2019_11_02_114947) do
     t.string "opponent", null: false
     t.string "manager", null: false
     t.integer "point_difference", null: false
-    t.integer "list_point", null: false
+    t.integer "lost_point", null: false
     t.string "horisugi_doll", null: false
     t.bigint "player_id", null: false
     t.datetime "created_at", null: false
@@ -310,7 +310,7 @@ ActiveRecord::Schema.define(version: 2019_11_02_114947) do
     t.string "opponent", null: false
     t.string "manager", null: false
     t.integer "point_difference", null: false
-    t.integer "list_point", null: false
+    t.integer "lost_point", null: false
     t.string "horisugi_doll", null: false
     t.string "climate", null: false
     t.bigint "player_id", null: false

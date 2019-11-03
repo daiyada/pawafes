@@ -4,7 +4,7 @@ class CreateFirstRounds < ActiveRecord::Migration[5.2]
       t.string :opponent, null: false
       t.string :manager, null: false
       t.integer :point_difference, null: false
-      t.integer :list_point, null: false
+      t.integer :lost_point, null: false
       t.string :horisugi_doll, null: false
       t.references :player, null: false, foreign_key: true
       t.timestamps
