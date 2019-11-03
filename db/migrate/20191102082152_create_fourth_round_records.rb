@@ -1,6 +1,9 @@
 class CreateFourthRoundRecords < ActiveRecord::Migration[5.2]
   def change
     create_table :fourth_round_records do |t|
+      t.string :participation, null: false
+      t.integer :point_difference, null: false
+      t.integer :lost_point, null: false
       t.integer :muscle, null: false
       t.integer :agile, null: false
       t.integer :technique, null: false

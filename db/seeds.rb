@@ -146,3 +146,17 @@ end
     { name: name, base_point: base_point}
   )
 end
+
+[
+  ["野手フル出場", 1.5],
+  ["野手部分出場", 1.3],
+  ["投手完投", 1.5],
+  ["投手6回以上", 1.3],
+  ["投手3回以上", 1.2],
+  ["投手3回未満", 1.1],
+  ["出場なし", 1.0]
+].each do |name, coefficient|
+  Participation.create!(
+    { name: name, coefficient: coefficient}
+  )
+end

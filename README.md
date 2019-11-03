@@ -51,6 +51,7 @@
 ## first_round_recordsテーブル
 |Column|Type|Options|
 |------|----|-------|
+|participation|string|null: false|
 |muscle|integer|null: false|
 |agile|integer|null: false|
 |technique|integer|null: false|
@@ -101,6 +102,7 @@
 ## second_round_recordsテーブル
 |Column|Type|Options|
 |------|----|-------|
+|participation|string|null: false|
 |muscle|integer|null: false|
 |agile|integer|null: false|
 |technique|integer|null: false|
@@ -151,6 +153,7 @@
 ## third_round_recordsテーブル
 |Column|Type|Options|
 |------|----|-------|
+|participation|string|null: false|
 |muscle|integer|null: false|
 |agile|integer|null: false|
 |technique|integer|null: false|
@@ -201,6 +204,7 @@
 ## fourth_round_recordsテーブル
 |Column|Type|Options|
 |------|----|-------|
+|participation|string|null: false|
 |muscle|integer|null: false|
 |agile|integer|null: false|
 |technique|integer|null: false|
@@ -250,6 +254,7 @@
 ## semi_final_round_recordsテーブル
 |Column|Type|Options|
 |------|----|-------|
+|participation|string|null: false|
 |muscle|integer|null: false|
 |agile|integer|null: false|
 |technique|integer|null: false|
@@ -299,6 +304,7 @@
 ## final_round_recordsテーブル
 |Column|Type|Options|
 |------|----|-------|
+|participation|string|null: false|
 |muscle|integer|null: false|
 |agile|integer|null: false|
 |technique|integer|null: false|
@@ -387,5 +393,18 @@
 - belongs_to :second-round
 - belongs_to :third-round
 - belongs_to :fourth-round
+- belongs_to :semi_final_round
+- belongs_to :final_round
+
+## participationsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|coefficient|float|null: false|
+### Association
+- belongs_to :first_round
+- belongs_to :second_round
+- belongs_to :third_round
+- belongs_to :fourth_round
 - belongs_to :semi_final_round
 - belongs_to :final_round
