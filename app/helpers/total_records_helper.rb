@@ -1,0 +1,2 @@
+module TotalRecordsHelper
+end

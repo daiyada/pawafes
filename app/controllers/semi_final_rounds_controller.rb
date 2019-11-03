@@ -1,0 +1,2 @@
+class SemiFinalRoundsController < ApplicationController
+end

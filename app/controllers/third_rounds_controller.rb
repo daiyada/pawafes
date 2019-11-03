@@ -1,0 +1,2 @@
+class ThirdRoundsController < ApplicationController
+end
