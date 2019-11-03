@@ -349,7 +349,7 @@
 |straight_ball_out|integer|null: false|
 |change_ball_out|integer|null: false|
 |strike_out|integer|null: false|
-|fly-liner_out|integer|null: false|
+|fly_liner_out|integer|null: false|
 |roller|integer|null: false|
 |double_play|integer|null: false|
 |player|references|null: false, foreign_key: true|
@@ -360,11 +360,11 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|muscle_coefficient|integer|null: false|
-|agile_coefficient|integer|null: false|
-|technique_coefficient|integer|null: false|
-|change_coefficient|integer|null: false|
-|spirit_coefficient|integer|null: false|
+|muscle_coefficient|float|null: false|
+|agile_coefficient|float|null: false|
+|technique_coefficient|float|null: false|
+|change_coefficient|float|null: false|
+|spirit_coefficient|float|null: false|
 ### Association
 - belongs_to :first_round
 - belongs_to :second_round
@@ -376,6 +376,7 @@
 ## pointsテーブル
 |Column|Type|Options|
 |------|----|-------|
+|name|sting|null: false|
 |muscle|integer|null: false|
 |agile|integer|null: false|
 |technique|integer|null: false|

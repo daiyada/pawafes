@@ -150,11 +150,11 @@ ActiveRecord::Schema.define(version: 2019_11_02_114947) do
 
   create_table "managers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "muscle_coefficient", null: false
-    t.integer "agile_coefficient", null: false
-    t.integer "technique_coefficient", null: false
-    t.integer "change_coefficient", null: false
-    t.integer "spriit_coefficient", null: false
+    t.float "muscle_coefficient", null: false
+    t.float "agile_coefficient", null: false
+    t.float "technique_coefficient", null: false
+    t.float "change_coefficient", null: false
+    t.float "spirit_coefficient", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -172,11 +172,12 @@ ActiveRecord::Schema.define(version: 2019_11_02_114947) do
   end
 
   create_table "points", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
     t.integer "muscle", null: false
     t.integer "agile", null: false
     t.integer "technique", null: false
     t.integer "change", null: false
-    t.integer "spriit", null: false
+    t.integer "spirit", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
