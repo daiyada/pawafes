@@ -1,0 +1,30 @@
+.new-player-wrapper
+  新規登録
+  .new-player-wrapper__registration
+    = form_with url: players_path(@player), method: :post, class: "registration" do |f|
+      名前
+      = f.text_field :name
+      ポジション
+      = f.select :position, {}, {}, class: "position" do
+        %option 投手
+        %option 捕手
+        %option 一塁手
+        %option 二塁手
+        %option 三塁手
+        %option 遊撃手
+        %option 外野手
+      投
+      = f.select :dominant_throw, {}, {}, class: "dominant_throw" do
+        %option 右
+        %option 左
+      打
+      = f.select :dominant_batting, {}, {}, class: "dominant_batting" do
+        %option 右
+        %option 左
+        %option 両
+      ゲームレベル
+      = f.select :level, {}, {}, class: "game-level" do
+        %option ルーキー
+        %option ノーマル
+        %option 達人
+      = f.submit "ゲームを始める", class: "game-start-button"
