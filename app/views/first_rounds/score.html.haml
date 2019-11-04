@@ -1,0 +1,119 @@
+.first-round-score-wrap
+  1回線
+  ユーザー名：
+  = current_user.nickname
+  選手名：
+  = @player.name
+  レベル：
+  = @player.level
+
+.first-round-score-top
+  試合前設定
+  .first-round-score-top__opponent
+    相手チーム：
+    = @firstround.opponent
+  .first-round-score-top__manager
+    マネージャー：
+    = @firstround.supporter
+  .first-round-score-top__horisugi
+    堀杉くん人形：
+    = @firstround.horisugi_doll
+%br
+.first-round-score-score
+  試合内容
+  = form_with url: record_player_first_rounds_path do |f|
+    出場回：
+    = f.select :participation, @participation
+    得失点差：
+    = f.number_field :point_difference, id: "point_difference"
+    失点：
+    = f.number_field :lost_point, id: "lost_point"
+    ヒット：
+    = f.number_field :hit, id: "hit"
+    二塁打：
+    = f.number_field :second_base_hit, id: "second_base_hit"
+    三塁打：
+    = f.number_field :third_base_hit, id: "third_base_hit"
+    本塁打：
+    = f.number_field :home_run, id: "home_run"
+    犠打：
+    = f.number_field :sacrifice_bunt, id: "sacrifice_bunt"
+    犠飛：
+    = f.number_field :sacrifice_fly, id: "sacrifice_fly"
+    盗塁：
+    = f.number_field :steal, id: "steal"
+    登板回数：
+    = f.number_field :pitch, id: "pitch"
+    ストレート系アウト：
+    = f.number_field :straight_ball_out, id: "straight_ball_out"
+    変化球系アウト：
+    = f.number_field :change_ball_out, id: "change_ball_out"
+    奪三振：
+    = f.number_field :strike_out, id: "strike_out"
+    フライ／ライナーアウト：
+    = f.number_field :fly_liner_out, id: "fly_liner_out"
+    ゴロアウト：
+    = f.number_field :roller, id: "roller"
+    併殺：
+    = f.number_field :double_play, id: "double_play"
+%br
+.first-round-score-point
+  .muscle
+    筋力ポイント：
+    .muscle__base_point
+      ベースポイント：
+      = @muscle_base_point
+    .muscle__action_point
+      行動ポイント：
+      = @muscle_action_point
+    .muscle__action_point
+      合計ポイント
+      = @muscle_total_point
+  %br
+  .agile
+    敏捷ポイント：
+    .agile__base_point
+      ベースポイント：
+      = @agile_base_point
+    .agile__action_point
+      行動ポイント：
+      = @agile_action_point
+    .agile__total_point
+      合計ポイント
+      = @agile_total_point
+  %br
+  .technique
+    技術ポイント：
+    .technique__base_point
+      ベースポイント：
+      = @technique_base_point
+    .technique__action_point
+      行動ポイント：
+      = @technique_action_point
+    .technique__total_point
+      合計ポイント
+      = @technique_total_point
+  %br
+  .change
+    変化球ポイント：
+    .change__base_point
+      ベースポイント：
+      = @change_base_point
+    .change__action_point
+      行動ポイント：
+      = @change_action_point
+    .change__total_point
+      合計ポイント
+      = @change_total_point
+  %br
+  .spirit
+    精神ポイント：
+    .spirit__base_point
+      ベースポイント：
+      = @spirit_base_point
+    .spirit__action_point
+      行動ポイント：
+      = @spirit_action_point
+    .spirit__total_point
+      合計ポイント
+      = @spirit_total_point
