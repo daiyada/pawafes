@@ -37,7 +37,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |opponent|string|null: false|
-|manager|string|null: false|
+|supporter|string|null: false|
+|supporter_mood|string|null: false|
 |point_difference|integer|null: false|
 |lost_point|integer|null: false|
 |horisugi_doll|string|null: false|
@@ -87,7 +88,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |opponent|string|null: false|
-|manager|string|null: false|
+|supporter|string|null: false|
+|supporter_mood|string|null: false|
 |point_difference|integer|null: false|
 |lost_point|integer|null: false|
 |horisugi_doll|string|null: false|
@@ -138,7 +140,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |opponent|string|null: false|
-|manager|string|null: false|
+|supporter|string|null: false|
+|supporter_mood|string|null: false|
 |point_difference|integer|null: false|
 |lost_point|integer|null: false|
 |horisugi_doll|string|null: false|
@@ -189,7 +192,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |opponent|string|null: false|
-|manager|string|null: false|
+|supporter|string|null: false|
+|supporter_mood|string|null: false|
 |point_difference|integer|null: false|
 |lost_point|integer|null: false|
 |horisugi_doll|string|null: false|
@@ -240,7 +244,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |opponent|string|null: false|
-|manager|string|null: false|
+|supporter|string|null: false|
+|supporter_mood|string|null: false|
 |point_difference|integer|null: false|
 |lost_point|integer|null: false|
 |horisugi_doll|string|null: false|
@@ -290,7 +295,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |opponent|string|null: false|
-|manager|string|null: false|
+|supporter|string|null: false|
+|supporter_mood|string|null: false|
 |point_difference|integer|null: false|
 |lost_point|integer|null: false|
 |horisugi_doll|string|null: false|

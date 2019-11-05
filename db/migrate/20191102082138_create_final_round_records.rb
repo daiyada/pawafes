@@ -23,6 +23,7 @@ class CreateFinalRoundRecords < ActiveRecord::Migration[5.2]
       t.integer :fly_liner_out, null: false
       t.integer :roller, null: false
       t.integer :double_play, null: false
+      t.string :wagama_order
       t.references :player, null: false, foreign_key: true
       t.timestamps
     end
