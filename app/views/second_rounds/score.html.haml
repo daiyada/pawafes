@@ -1,5 +1,5 @@
 .round-score-wrap
-  1回線
+  2回線
   ユーザー名：
   = current_user.nickname
   %br
@@ -26,10 +26,13 @@
   .round-score-top__horisugi
     堀杉くん人形：
     = @round.horisugi_doll
+  .round-score-top__climate
+    天気：
+    = @round.climate
 %br
 .round-score-score
   試合内容
-  = form_with url: record_player_first_rounds_path, method: :post, id: "1st-game-data" do |f|
+  = form_with url: record_player_second_rounds_path, method: :post, id: "2nd-game-data" do |f|
     出場回：
     = f.select :take_part_in, @participation, {}, {id: "participation", class: "game-data"}
     得失点差：

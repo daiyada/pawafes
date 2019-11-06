@@ -1,14 +1,14 @@
-.first-round-wrap
-  1回線
+.round-wrap
+  2回線
   ユーザー名
   = current_user.nickname
   選手名
   = @player.name
   レベル
   = @player.level
-  .first-round-wrap__content
+  .round-wrap__content
     試合前設定
-    = form_with url: player_first_rounds_path(@player), method: :post do |f|
+    = form_with url: player_second_rounds_path(@player), method: :post do |f|
       相手チーム
       = f.select :opponent, @RoundTeams
       マネージャー
@@ -22,5 +22,8 @@
       = f.select :horisugi_doll do
         %option 有
         %option 無
+      天気
+      = f.select :climate do
+        %option 晴れ
+        %option 台風
       = f.submit :"設定する"
-  
