@@ -26,3 +26,5 @@ json.spirit do
   json.spirit_base_point @spirit_base_point
   json.spirit_action_point @spirit_action_point
 end
+
+json.level @level

@@ -1,5 +1,5 @@
 .round-score-wrap
-  2回線
+  3回線
   ユーザー名：
   = current_user.nickname
   %br
@@ -32,7 +32,7 @@
 %br
 .round-score-score
   試合内容
-  = form_with url: record_player_second_rounds_path, method: :post, id: "2nd-game-data" do |f|
+  = form_with url: record_player_third_rounds_path, method: :post, id: "3rd-game-data" do |f|
     出場回：
     = f.select :take_part_in, @participation, {}, {id: "participation", class: "game-data"}
     得失点差：
