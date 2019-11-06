@@ -134,19 +134,19 @@ class SecondRoundsController < ApplicationController
       level_coefficient = 0.5
     end
     
-    @muscle_base_point = team_point
-    @muscle_action_point = (level_coefficient * mood_efficient * manager_muscle_coefficient * horisugi_coefficient * climate_coefficient).round(1)
+    @muscle_base_point = team_point * climate_coefficient
+    @muscle_action_point = (level_coefficient * mood_efficient * manager_muscle_coefficient * horisugi_coefficient).round(1)
 
-    @agile_base_point = team_point * agile_effi
-    @agile_action_point = (level_coefficient * mood_efficient * manager_agile_coefficient * horisugi_coefficient * climate_coefficient).round(1)
+    @agile_base_point = team_point * climate_coefficient * agile_effi
+    @agile_action_point = (level_coefficient * mood_efficient * manager_agile_coefficient * horisugi_coefficient).round(1)
 
-    @technique_base_point = team_point
-    @technique_action_point = (level_coefficient * mood_efficient * manager_technique_coefficient * horisugi_coefficient * climate_coefficient).round(1)
+    @technique_base_point = team_point * climate_coefficient
+    @technique_action_point = (level_coefficient * mood_efficient * manager_technique_coefficient * horisugi_coefficient).round(1)
 
-    @change_base_point = team_point * change_effi
-    @change_action_point = (level_coefficient * mood_efficient * manager_change_coefficient * horisugi_coefficient * climate_coefficient).round(1)
+    @change_base_point = team_point * climate_coefficient * change_effi
+    @change_action_point = (level_coefficient * mood_efficient * manager_change_coefficient * horisugi_coefficient).round(1)
 
-    @spirit_base_point = team_point
-    @spirit_action_point = (level_coefficient * mood_efficient * manager_spirit_coefficient * horisugi_coefficient * climate_coefficient).round(1)
+    @spirit_base_point = team_point * climate_coefficient
+    @spirit_action_point = (level_coefficient * mood_efficient * manager_spirit_coefficient * horisugi_coefficient).round(1)
   end
 end
