@@ -9,7 +9,7 @@ class PlayersController < ApplicationController
       redirect_to new_players_path
     else
       @player.save
-      redirect_to new_first_round_path
+      redirect_to new_player_first_round_path(@player)
     end
   end
 

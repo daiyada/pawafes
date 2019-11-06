@@ -37,7 +37,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |opponent|string|null: false|
-|manager|string|null: false|
+|supporter|string|null: false|
+|supporter_mood|string|null: false|
 |point_difference|integer|null: false|
 |lost_point|integer|null: false|
 |horisugi_doll|string|null: false|
@@ -51,6 +52,7 @@
 ## first_round_recordsテーブル
 |Column|Type|Options|
 |------|----|-------|
+|participation|string|null: false|
 |muscle|integer|null: false|
 |agile|integer|null: false|
 |technique|integer|null: false|
@@ -86,7 +88,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |opponent|string|null: false|
-|manager|string|null: false|
+|supporter|string|null: false|
+|supporter_mood|string|null: false|
 |point_difference|integer|null: false|
 |lost_point|integer|null: false|
 |horisugi_doll|string|null: false|
@@ -101,6 +104,7 @@
 ## second_round_recordsテーブル
 |Column|Type|Options|
 |------|----|-------|
+|participation|string|null: false|
 |muscle|integer|null: false|
 |agile|integer|null: false|
 |technique|integer|null: false|
@@ -136,7 +140,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |opponent|string|null: false|
-|manager|string|null: false|
+|supporter|string|null: false|
+|supporter_mood|string|null: false|
 |point_difference|integer|null: false|
 |lost_point|integer|null: false|
 |horisugi_doll|string|null: false|
@@ -151,6 +156,7 @@
 ## third_round_recordsテーブル
 |Column|Type|Options|
 |------|----|-------|
+|participation|string|null: false|
 |muscle|integer|null: false|
 |agile|integer|null: false|
 |technique|integer|null: false|
@@ -186,7 +192,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |opponent|string|null: false|
-|manager|string|null: false|
+|supporter|string|null: false|
+|supporter_mood|string|null: false|
 |point_difference|integer|null: false|
 |lost_point|integer|null: false|
 |horisugi_doll|string|null: false|
@@ -201,6 +208,7 @@
 ## fourth_round_recordsテーブル
 |Column|Type|Options|
 |------|----|-------|
+|participation|string|null: false|
 |muscle|integer|null: false|
 |agile|integer|null: false|
 |technique|integer|null: false|
@@ -236,7 +244,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |opponent|string|null: false|
-|manager|string|null: false|
+|supporter|string|null: false|
+|supporter_mood|string|null: false|
 |point_difference|integer|null: false|
 |lost_point|integer|null: false|
 |horisugi_doll|string|null: false|
@@ -250,6 +259,7 @@
 ## semi_final_round_recordsテーブル
 |Column|Type|Options|
 |------|----|-------|
+|participation|string|null: false|
 |muscle|integer|null: false|
 |agile|integer|null: false|
 |technique|integer|null: false|
@@ -285,7 +295,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |opponent|string|null: false|
-|manager|string|null: false|
+|supporter|string|null: false|
+|supporter_mood|string|null: false|
 |point_difference|integer|null: false|
 |lost_point|integer|null: false|
 |horisugi_doll|string|null: false|
@@ -299,6 +310,7 @@
 ## final_round_recordsテーブル
 |Column|Type|Options|
 |------|----|-------|
+|participation|string|null: false|
 |muscle|integer|null: false|
 |agile|integer|null: false|
 |technique|integer|null: false|
@@ -387,5 +399,18 @@
 - belongs_to :second-round
 - belongs_to :third-round
 - belongs_to :fourth-round
+- belongs_to :semi_final_round
+- belongs_to :final_round
+
+## participationsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|coefficient|float|null: false|
+### Association
+- belongs_to :first_round
+- belongs_to :second_round
+- belongs_to :third_round
+- belongs_to :fourth_round
 - belongs_to :semi_final_round
 - belongs_to :final_round

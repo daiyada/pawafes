@@ -1,6 +1,9 @@
 class CreateThirdRoundRecords < ActiveRecord::Migration[5.2]
   def change
     create_table :third_round_records do |t|
+      t.string :take_part_in, null: false
+      t.integer :point_difference, null: false
+      t.integer :lost_point, null: false
       t.integer :muscle, null: false
       t.integer :agile, null: false
       t.integer :technique, null: false
@@ -20,6 +23,7 @@ class CreateThirdRoundRecords < ActiveRecord::Migration[5.2]
       t.integer :fly_liner_out, null: false
       t.integer :roller, null: false
       t.integer :double_play, null: false
+      t.string :wagama_order
       t.references :player, null: false, foreign_key: true
       t.timestamps
     end
