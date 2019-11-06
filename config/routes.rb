@@ -48,5 +48,6 @@ Rails.application.routes.draw do
         post "record" => "final_rounds#record"
       end
     end
+    resources :total_records, only: [:new, :create]
   end
 end
