@@ -28,7 +28,7 @@ class ThirdRoundsController < ApplicationController
   end
 
   def record
-    @RRecord = SecondRoundRecord.new(round_record_params)
+    @RRecord = ThirdRoundRecord.new(round_record_params)
     if @RRecord.blank?
       redirect_to score_player_third_rounds_path
     else
