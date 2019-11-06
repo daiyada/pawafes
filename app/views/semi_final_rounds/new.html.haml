@@ -1,0 +1,26 @@
+.first-round-wrap
+  準決勝
+  ユーザー名
+  = current_user.nickname
+  選手名
+  = @player.name
+  レベル
+  = @player.level
+  .first-round-wrap__content
+    試合前設定
+    = form_with url: player_semi_final_rounds_path(@player), method: :post do |f|
+      相手チーム
+      = f.select :opponent, @RoundTeams
+      マネージャー
+      = f.select :supporter, @managers
+      マネージャーの機嫌
+      = f.select :supporter_mood do
+        %option ★☆☆
+        %option ★★☆
+        %option ★★★
+      掘杉くん人形
+      = f.select :horisugi_doll do
+        %option 有
+        %option 無
+      = f.submit :"設定する"
+  
