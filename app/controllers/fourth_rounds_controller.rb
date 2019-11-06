@@ -4,4 +4,7 @@ class FourthRoundsController < ApplicationController
 
   def create
   end
+
+  def lose
+  end
 end

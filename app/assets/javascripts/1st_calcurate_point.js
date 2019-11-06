@@ -39,7 +39,7 @@ $(document).on("turbolinks:load", function(){
     e.preventDefault();
     var formData = new FormData(this);
     $.ajax({
-      url: "record",
+      url: "catch_point",
       type: "POST",
       data: formData,
       datatype: "json",
@@ -47,6 +47,7 @@ $(document).on("turbolinks:load", function(){
       contentType: false
     })
     .done(function(data){
+      console.log(data);
       maxActionValue = 150;  // 何回戦かにより変化
       // 筋力試合前データ
       var muscle_base = data.muscle.muscle_base_point;

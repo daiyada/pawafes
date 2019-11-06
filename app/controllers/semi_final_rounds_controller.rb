@@ -4,4 +4,7 @@ class SemiFinalRoundsController < ApplicationController
 
   def create
   end
+
+  def lose
+  end
 end

@@ -2,11 +2,19 @@
   1回線
   ユーザー名：
   = current_user.nickname
+  %br
   選手名：
   = @player.name
+  %br
+  = "#{@player.dominant_throw}投#{@player.dominant_batting}打"
+  %br
+  ポジション：
+  =  @player.position
+  %br
   レベル：
   = @player.level
 
+%br
 .first-round-score-top
   試合前設定
   .first-round-score-top__opponent
@@ -21,63 +29,62 @@
 %br
 .first-round-score-score
   試合内容
-  = form_with url: record_player_first_rounds_path, id: "1st-game-data" do |f|
+  = form_with url: record_player_first_rounds_path, method: :post, id: "1st-game-data" do |f|
     出場回：
     = f.select :take_part_in, @participation, {}, {id: "participation", class: "1st-game-data"}
     得失点差：
     = f.number_field :point_difference, id: "point_difference", class: "1st-game-data", value: 0
     失点：
-    = f.number_field :lost_point, id: "lost_point", class: "1st-game-data", value: 0
+    = f.number_field :lost_point, id: "lost_point", class: "1st-game-data", value: 0, min: 0
     ヒット：
-    = f.number_field :hit, id: "hit", class: "1st-game-data", value: 0
+    = f.number_field :hit, id: "hit", class: "1st-game-data", value: 0, min: 0
     二塁打：
-    = f.number_field :second_base_hit, id: "second_base_hit", class: "1st-game-data", value: 0
+    = f.number_field :second_base_hit, id: "second_base_hit", class: "1st-game-data", value: 0, min: 0
     三塁打：
-    = f.number_field :third_base_hit, id: "third_base_hit", class: "1st-game-data", value: 0
+    = f.number_field :third_base_hit, id: "third_base_hit", class: "1st-game-data", value: 0, min: 0
     本塁打：
-    = f.number_field :home_run, id: "home_run", class: "1st-game-data", value: 0
+    = f.number_field :home_run, id: "home_run", class: "1st-game-data", value: 0, min: 0
     犠打：
-    = f.number_field :sacrifice_bunt, id: "sacrifice_bunt", class: "1st-game-data", value: 0
+    = f.number_field :sacrifice_bunt, id: "sacrifice_bunt", class: "1st-game-data", value: 0, min: 0
     犠飛：
-    = f.number_field :sacrifice_fly, id: "sacrifice_fly", class: "1st-game-data", value: 0
+    = f.number_field :sacrifice_fly, id: "sacrifice_fly", class: "1st-game-data", value: 0, min: 0
     盗塁：
-    = f.number_field :steal, id: "steal", class: "1st-game-data", value: 0
+    = f.number_field :steal, id: "steal", class: "1st-game-data", value: 0, min: 0
     登板回数：
-    = f.number_field :pitch, id: "pitch", class: "1st-game-data", value: 0
+    = f.number_field :pitch, id: "pitch", class: "1st-game-data", value: 0, min: 0
     ストレート系アウト：
-    = f.number_field :straight_ball_out, id: "straight_ball_out", class: "1st-game-data", value: 0
+    = f.number_field :straight_ball_out, id: "straight_ball_out", class: "1st-game-data", value: 0, min: 0
     変化球系アウト：
-    = f.number_field :change_ball_out, id: "change_ball_out", class: "1st-game-data", value: 0
+    = f.number_field :change_ball_out, id: "change_ball_out", class: "1st-game-data", value: 0, min: 0
     奪三振：
-    = f.number_field :strike_out, id: "strike_out", class: "1st-game-data", value: 0
+    = f.number_field :strike_out, id: "strike_out", class: "1st-game-data", value: 0, min: 0
     フライ／ライナーアウト：
-    = f.number_field :fly_liner_out, id: "fly_liner_out", class: "1st-game-data", value: 0
+    = f.number_field :fly_liner_out, id: "fly_liner_out", class: "1st-game-data", value: 0, min: 0
     ゴロアウト：
-    = f.number_field :roller, id: "roller", class: "1st-game-data", value: 0
+    = f.number_field :roller, id: "roller", class: "1st-game-data", value: 0, min: 0
     併殺：
-    = f.number_field :double_play, id: "double_play", class: "1st-game-data", value: 0
+    = f.number_field :double_play, id: "double_play", class: "1st-game-data", value: 0, min: 0
     - if @supporter == "我間摩夕"
       お言いつけ
       = f.select :wagama_order, {}, {id: "wagama_order", class: "1st-game-data"} do
         %option 成功
         %option 失敗
-
     .get-point
       獲得ポイント
       .get-point__muscle
         筋力ポイント
-        = f.text_field :muscle, id: "muscle-point", value: 0
+        = f.text_field :muscle, id: "muscle-point", value: 0, min: 0
       .get-point__agile
         敏捷ポイント
-        = f.text_field :agile, id: "agile-point", value: 0
+        = f.text_field :agile, id: "agile-point", value: 0, min: 0
       .get-point__technique
         技術ポイント
-        = f.text_field :technique, id: "technique-point", value: 0
+        = f.text_field :technique, id: "technique-point", value: 0, min: 0
       .get-point__change
         変化球ポイント
-        = f.text_field :change, id: "change-point", value: 0
+        = f.text_field :change, id: "change-point", value: 0, min: 0
       .get-point__spirit
         精神ポイント
-        = f.text_field :spirit, id: "spirit-point", value: 0
+        = f.text_field :spirit, id: "spirit-point", value: 0, min: 0
     .game-max
     = f.submit :"試合終了"

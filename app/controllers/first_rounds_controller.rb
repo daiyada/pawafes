@@ -1,5 +1,5 @@
 class FirstRoundsController < ApplicationController
-  before_action :before_game, only: [:score, :record]
+  before_action :before_game, only: [:score, :record, :catch_point]
 
   def new
     @player = Player.find(params[:player_id])
@@ -24,10 +24,24 @@ class FirstRoundsController < ApplicationController
     @supporter = @FirstRound.supporter
   end
 
-  def record
+  def catch_point
     respond_to do |format|
       format.json
-      format.html
+    end
+  end
+
+  def record
+    @FRRecord = FirstRoundRecord.new(first_round_record_params)
+    if @FRRecord.blank?
+      redirect_to score_player_first_rounds_path
+    else
+    @FRRecord.save
+    difference = @FRRecord.point_difference
+      if difference > 0 
+        redirect_to new_player_second_round_path
+      else
+        redirect_to lose_player_second_rounds_path
+      end
     end
   end
 
@@ -35,6 +49,32 @@ class FirstRoundsController < ApplicationController
 
   def first_round_params
     params.permit(:opponent, :supporter, :supporter_mood, :horisugi_doll, :player_id)
+  end
+
+  def first_round_record_params
+    params.permit(:take_part_in, 
+                  :point_difference,
+                  :lost_point, :hit,
+                  :second_base_hit,
+                  :third_base_hit,
+                  :home_run,
+                  :sacrifice_bunt,
+                  :sacrifice_fly,
+                  :steal,
+                  :pitch,
+                  :straight_ball_out,
+                  :change_ball_out,
+                  :strike_out,
+                  :fly_liner_out,
+                  :roller,
+                  :double_play,
+                  :wagama_order,
+                  :muscle,
+                  :agile,
+                  :technique,
+                  :change,
+                  :spirit,
+                  :player_id)
   end
 
   def before_game
