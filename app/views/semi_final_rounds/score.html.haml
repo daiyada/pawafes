@@ -1,5 +1,5 @@
 .round-score-wrap
-  1回戦
+  準決勝
   ユーザー名：
   = current_user.nickname
   %br
@@ -29,7 +29,7 @@
 %br
 .round-score-score
   試合内容
-  = form_with url: record_player_first_rounds_path, method: :post, id: "1st-game-data" do |f|
+  = form_with url: record_player_semi_final_rounds_path, method: :post, id: "semi-final-game-data" do |f|
     出場回：
     = f.select :take_part_in, @participation, {}, {id: "participation", class: "game-data"}
     得失点差：
