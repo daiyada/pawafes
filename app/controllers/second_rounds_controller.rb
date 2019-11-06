@@ -82,6 +82,7 @@ class SecondRoundsController < ApplicationController
 
   def before_game
     @player = Player.find(params[:player_id])
+    @level = @player.level
     @position = @player.position
     @round = SecondRound.find(params[:player_id])
     participation = Participation.all
@@ -126,9 +127,9 @@ class SecondRoundsController < ApplicationController
       climate_coefficient = 2.0
     end
 
-    if @player.level == "達人"
+    if @level == "達人"
       level_coefficient = 1.3
-    elsif @player.level == "ノーマル"
+    elsif @level == "ノーマル"
       level_coefficient = 1.0
     else
       level_coefficient = 0.5

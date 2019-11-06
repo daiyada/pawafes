@@ -35,7 +35,7 @@ $(document).on("turbolinks:load", function(){
     return html;
   }
 
-  $("#1st-game-data").on("change",function(e){
+  $("#3rd-game-data").on("change",function(e){
     e.preventDefault();
     var formData = new FormData(this);
     $.ajax({
@@ -57,7 +57,7 @@ $(document).on("turbolinks:load", function(){
       } else {
         var level_coeffi = 0.5
       }
-      maxActionValue = 160 * level_coeffi;  // 何回戦かにより変化
+      maxActionValue = 170 * level_coeffi;  // 何回戦かにより変化
       // 筋力試合前データ
       var muscle_base = data.muscle.muscle_base_point;
       var muscle_action = data.muscle.muscle_action_point;

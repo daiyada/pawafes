@@ -48,7 +48,16 @@ $(document).on("turbolinks:load", function(){
     })
     .done(function(data){
       console.log(data);
-      maxActionValue = 160;  // 何回戦かにより変化
+      // ゲームレベル
+      var level = data.level
+      if (level == "達人"){
+        var level_coeffi = 1.2
+      } else if (level == "ノーマル"){
+        var level_coeffi = 1.0
+      } else {
+        var level_coeffi = 0.5
+      }
+      maxActionValue = 160 * level_coeffi;  // 何回戦かにより変化
       // 筋力試合前データ
       var muscle_base = data.muscle.muscle_base_point;
       var muscle_action = data.muscle.muscle_action_point;
