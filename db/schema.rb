@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2019_11_03_095121) do
     t.integer "fly_liner_out", null: false
     t.integer "roller", null: false
     t.integer "double_play", null: false
+    t.string "wagama_order"
     t.bigint "player_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -51,6 +52,7 @@ ActiveRecord::Schema.define(version: 2019_11_03_095121) do
   create_table "final_rounds", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "opponent", null: false
     t.string "supporter", null: false
+    t.string "supporter_mood", null: false
     t.string "horisugi_doll", null: false
     t.bigint "player_id", null: false
     t.datetime "created_at", null: false
@@ -81,6 +83,7 @@ ActiveRecord::Schema.define(version: 2019_11_03_095121) do
     t.integer "fly_liner_out", null: false
     t.integer "roller", null: false
     t.integer "double_play", null: false
+    t.string "wagama_order"
     t.bigint "player_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -97,6 +100,7 @@ ActiveRecord::Schema.define(version: 2019_11_03_095121) do
   create_table "first_rounds", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "opponent", null: false
     t.string "supporter", null: false
+    t.string "supporter_mood", null: false
     t.string "horisugi_doll", null: false
     t.bigint "player_id", null: false
     t.datetime "created_at", null: false
@@ -127,6 +131,7 @@ ActiveRecord::Schema.define(version: 2019_11_03_095121) do
     t.integer "fly_liner_out", null: false
     t.integer "roller", null: false
     t.integer "double_play", null: false
+    t.string "wagama_order"
     t.bigint "player_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -143,6 +148,7 @@ ActiveRecord::Schema.define(version: 2019_11_03_095121) do
   create_table "fourth_rounds", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "opponent", null: false
     t.string "supporter", null: false
+    t.string "supporter_mood", null: false
     t.string "horisugi_doll", null: false
     t.string "climate", null: false
     t.bigint "player_id", null: false
@@ -215,6 +221,7 @@ ActiveRecord::Schema.define(version: 2019_11_03_095121) do
     t.integer "fly_liner_out", null: false
     t.integer "roller", null: false
     t.integer "double_play", null: false
+    t.string "wagama_order"
     t.bigint "player_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -231,6 +238,7 @@ ActiveRecord::Schema.define(version: 2019_11_03_095121) do
   create_table "second_rounds", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "opponent", null: false
     t.string "supporter", null: false
+    t.string "supporter_mood", null: false
     t.string "horisugi_doll", null: false
     t.string "climate", null: false
     t.bigint "player_id", null: false
@@ -262,6 +270,7 @@ ActiveRecord::Schema.define(version: 2019_11_03_095121) do
     t.integer "fly_liner_out", null: false
     t.integer "roller", null: false
     t.integer "double_play", null: false
+    t.string "wagama_order"
     t.bigint "player_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -278,6 +287,7 @@ ActiveRecord::Schema.define(version: 2019_11_03_095121) do
   create_table "semi_final_rounds", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "opponent", null: false
     t.string "supporter", null: false
+    t.string "supporter_mood", null: false
     t.string "horisugi_doll", null: false
     t.bigint "player_id", null: false
     t.datetime "created_at", null: false
@@ -308,6 +318,7 @@ ActiveRecord::Schema.define(version: 2019_11_03_095121) do
     t.integer "fly_liner_out", null: false
     t.integer "roller", null: false
     t.integer "double_play", null: false
+    t.string "wagama_order"
     t.bigint "player_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -324,6 +335,7 @@ ActiveRecord::Schema.define(version: 2019_11_03_095121) do
   create_table "third_rounds", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "opponent", null: false
     t.string "supporter", null: false
+    t.string "supporter_mood", null: false
     t.string "horisugi_doll", null: false
     t.string "climate", null: false
     t.bigint "player_id", null: false
