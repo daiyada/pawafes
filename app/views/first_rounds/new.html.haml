@@ -10,7 +10,7 @@
     試合前設定
     = form_with url: player_first_rounds_path(@player), method: :post do |f|
       相手チーム
-      = f.select :opponent, @FirstRoundTeams
+      = f.select :opponent, @RoundTeams
       マネージャー
       = f.select :supporter, @managers
       マネージャーの機嫌

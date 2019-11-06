@@ -1,4 +1,4 @@
-.first-round-wrap
+.round-wrap
   2回線
   ユーザー名
   = current_user.nickname
@@ -6,11 +6,11 @@
   = @player.name
   レベル
   = @player.level
-  .first-round-wrap__content
+  .round-wrap__content
     試合前設定
-    = form_with url: player_first_rounds_path(@player), method: :post do |f|
+    = form_with url: player_second_rounds_path(@player), method: :post do |f|
       相手チーム
-      = f.select :opponent, @FirstRoundTeams
+      = f.select :opponent, @RoundTeams
       マネージャー
       = f.select :supporter, @managers
       マネージャーの機嫌
