@@ -39,12 +39,42 @@ class FourthRoundsController < ApplicationController
       if difference > 0 
         redirect_to new_player_semi_final_round_path
       else
-        redirect_to lose_player_semi_final_rounds_path
+        redirect_to new_player_total_record
       end
     end
   end
 
-  def lose
+  def lost
+  end
+
+  def lost_record
+    FourthRoundRecord.create(
+      take_part_in: "出場なし", 
+      point_difference: -100,
+      lost_point: 100,
+      hit: 0,
+      second_base_hit: 0,
+      third_base_hit: 0,
+      home_run: 0,
+      sacrifice_bunt: 0,
+      sacrifice_fly: 0,
+      steal: 0,
+      pitch: 0,
+      straight_ball_out: 0,
+      change_ball_out: 0,
+      strike_out: 0,
+      fly_liner_out: 0,
+      roller: 0,
+      double_play: 0,
+      wagama_order: 0,
+      muscle: 0,
+      agile: 0,
+      technique: 0,
+      change: 0,
+      spirit: 0,
+      player_id: params[:player_id]
+    )
+    redirect_to lost_player_semi_final_rounds_path
   end
 
   private
