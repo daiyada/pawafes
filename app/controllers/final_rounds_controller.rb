@@ -15,7 +15,7 @@ class FinalRoundsController < ApplicationController
       redirect_to new_player_final_round_path
     else
       @Round.save
-      redirect_to new_player_total_record s_path(@Round)
+      redirect_to score_player_final_rounds_path(@Round)
     end
   end
 
@@ -35,8 +35,7 @@ class FinalRoundsController < ApplicationController
       redirect_to score_player_final_rounds_path
     else
     @RRecord.save
-    difference = @RRecord.point_difference
-    redirect_to new_player_final_round_path
+      redirect_to new_player_total_record_path
     end
   end
 
