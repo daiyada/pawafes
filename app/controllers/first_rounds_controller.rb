@@ -39,7 +39,7 @@ class FirstRoundsController < ApplicationController
       if difference > 0 
         redirect_to new_player_second_round_path
       else
-        redirect_to lose_player_second_rounds_path
+        redirect_to lost_player_second_rounds_path
       end
     end
   end

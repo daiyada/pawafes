@@ -350,20 +350,6 @@ ActiveRecord::Schema.define(version: 2019_11_03_095121) do
     t.integer "technique", null: false
     t.integer "change", null: false
     t.integer "spirit", null: false
-    t.integer "hit", null: false
-    t.integer "second_base_hit", null: false
-    t.integer "third_base_hit", null: false
-    t.integer "home_run", null: false
-    t.integer "sacrifice_bunt", null: false
-    t.integer "sacrifice_fly", null: false
-    t.integer "steal", null: false
-    t.integer "pitch", null: false
-    t.integer "straight_ball_out", null: false
-    t.integer "change_ball_out", null: false
-    t.integer "strike_out", null: false
-    t.integer "fly_liner_out", null: false
-    t.integer "roller", null: false
-    t.integer "double_play", null: false
     t.bigint "player_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

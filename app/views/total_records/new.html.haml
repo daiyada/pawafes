@@ -1,1 +1,49 @@
-終わり！
+.total-record
+  結果
+  %table
+    %tr
+      %th
+      %th 筋力
+      %th 敏捷
+      %th 技術
+      %th 変化球
+      %th 精神
+    %tr
+      %th 1回戦
+      - @fir_value.each do |value|
+        %td
+          = value
+    %tr
+      %th 2回戦
+      - @sec_value.each do |value|
+        %td
+          = value
+    %tr
+      %th 3回戦
+      - @thi_value.each do |value|
+        %td
+          = value
+    %tr
+      %th 4回戦
+      - @fou_value.each do |value|
+        %td
+          = value
+    %tr
+      %th 準決勝
+      - @sem_value.each do |value|
+        %td
+          = value
+    %tr
+      %th 決勝
+      - @fin_value.each do |value|
+        %td
+          = value
+    %tr
+      %th 計
+      - @total_value.each do |value|
+        %th
+          = value
+  
+.total-return
+  = link_to player_total_records_path, method: :post do
+    ホームへ
