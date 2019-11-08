@@ -2,6 +2,11 @@ class TotalRecordsController < ApplicationController
   before_action :calc_point, only: [:new, :create]
 
   def new
+    @player = Player.find(params[:player_id])
+    @name = @player.name
+    @throw = @player.dominant_throw
+    @batting = @player.dominant_batting
+    @position = @player.position
   end
 
   def create
