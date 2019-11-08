@@ -66,7 +66,6 @@ class SemiFinalRoundsController < ApplicationController
       fly_liner_out: 0,
       roller: 0,
       double_play: 0,
-      wagama_order: 0,
       muscle: 0,
       agile: 0,
       technique: 0,
