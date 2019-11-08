@@ -48,6 +48,13 @@ class SemiFinalRoundsController < ApplicationController
   end
 
   def lost_record
+    SemiFinalRound.create(
+      opponent: "敗退",
+      supporter: "敗退",
+      supporter_mood: "敗退",
+      horisugi_doll: "敗退",
+      player_id: params[:player_id]
+    )
     SemiFinalRoundRecord.create(
       take_part_in: "出場なし", 
       point_difference: -100,

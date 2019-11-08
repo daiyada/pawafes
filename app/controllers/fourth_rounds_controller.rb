@@ -39,7 +39,7 @@ class FourthRoundsController < ApplicationController
       if difference > 0 
         redirect_to new_player_semi_final_round_path
       else
-        redirect_to lost_player_semi_final_rounds_record
+        redirect_to lost_player_semi_final_rounds_path
       end
     end
   end
@@ -48,6 +48,14 @@ class FourthRoundsController < ApplicationController
   end
 
   def lost_record
+    FourthRound.create(
+      opponent: "敗退",
+      supporter: "敗退",
+      supporter_mood: "敗退",
+      horisugi_doll: "敗退",
+      climate: "敗退",
+      player_id: params[:player_id]
+    )
     FourthRoundRecord.create(
       take_part_in: "出場なし", 
       point_difference: -100,

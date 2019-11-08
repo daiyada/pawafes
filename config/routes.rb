@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root "users#index"
-  resources :players, only: [:new, :create] do
+  resources :players, only: [:new, :create, :destroy] do
     resources :first_rounds, only: [:new, :create] do
       collection do
         get "score" => "first_rounds#score"
