@@ -39,6 +39,7 @@ class SecondRoundsController < ApplicationController
       if difference > 0 
         redirect_to new_player_third_round_path
       else
+        binding.pry
         redirect_to lost_player_third_rounds_path
       end
     end
