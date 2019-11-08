@@ -1,5 +1,15 @@
 .total-record
   結果
+.total-record__info
+  選手登録情報
+  .total-record__info__name
+    選手名：
+    = @name
+  .total-record__info__dominant
+    = "#{@throw}投#{@batting}打"
+  .total-record__info__position
+    ポジション：
+    = @position
   %table
     %tr
       %th
@@ -47,3 +57,6 @@
 .total-return
   = link_to player_total_records_path, method: :post do
     ホームへ
+.total-delete
+  = link_to player_path(@player), method: :delete, data: {confirm: "本当に削除しますか？"} do
+    削除

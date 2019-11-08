@@ -13,6 +13,7 @@
     .made-player
       - if user_signed_in?
         - if @player.present?
+          %strong 作成選手一覧
           - @player.each do |player|
             .made-player__name
               = player.name
@@ -20,7 +21,7 @@
               = "#{player.dominant_throw}投#{player.dominant_batting}打"
               = link_to new_player_total_record_path(player.id) do
                 詳細
-              = link_to player_path(player.id), method: :delete do
+              = link_to player_path(player.id), method: :delete, data: {confirm: "本当に削除しますか？"} do
                 削除
         - else
           作成した選手はいません
