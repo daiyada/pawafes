@@ -57,3 +57,6 @@
 .total-return
   = link_to player_total_records_path, method: :post do
     ホームへ
+.total-delete
+  = link_to player_path(@player), method: :delete, data: {confirm: "本当に削除しますか？"} do
+    削除
