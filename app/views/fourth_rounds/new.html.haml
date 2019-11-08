@@ -26,6 +26,8 @@
       = f.select :climate do
         - if @secondclimate == "台風" || @thirdclimate == "台風"
           %option 晴れ
+        - elsif @secondclimate == "晴れ" && @thirdclimate == "晴れ"
+          %option 台風
         - else
           %option 晴れ
           %option 台風
