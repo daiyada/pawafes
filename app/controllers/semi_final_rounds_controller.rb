@@ -39,7 +39,7 @@ class SemiFinalRoundsController < ApplicationController
       if difference > 0 
         redirect_to new_player_final_round_path
       else
-        redirect_to new_player_total_record_path
+        redirect_to lost_player_final_rounds_path
       end
     end
   end

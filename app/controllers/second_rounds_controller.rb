@@ -39,7 +39,7 @@ class SecondRoundsController < ApplicationController
       if difference > 0 
         redirect_to new_player_third_round_path
       else
-        redirect_to new_player_total_record_path
+        redirect_to lost_player_third_rounds_path
       end
     end
   end
@@ -136,7 +136,7 @@ class SecondRoundsController < ApplicationController
 
     if @round.supporter == "紺野美崎" && @round.supporter_mood == "★☆☆"
       mood_efficient = 1.3
-    elsif @round.supporter == "紺野美崎" && @ound.supporter_mood == "★★☆"
+    elsif @round.supporter == "紺野美崎" && @round.supporter_mood == "★★☆"
       mood_efficient = 1.4
     elsif @round.supporter == "紺野美崎" && @round.supporter_mood == "★★★"
       mood_efficient = 1.5
