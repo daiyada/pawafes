@@ -63,7 +63,7 @@ class TotalRecordsController < ApplicationController
     @thi_value = thi_mus, thi_agi, thi_tec, thi_cha, thi_spi
     @fou_value = fou_mus, fou_agi, fou_tec, fou_cha, fou_spi
     @sem_value = sem_mus, sem_agi, sem_tec, sem_cha, sem_spi
-    @fin_value = fir_mus, fir_agi, fir_tec, fir_cha, fir_spi
+    @fin_value = fin_mus, fin_agi, fin_tec, fin_cha, fin_spi
     @total_value = @total_mus, @total_agi, @total_tec, @total_cha, @total_spi
   end
 end

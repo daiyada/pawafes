@@ -10,4 +10,18 @@
       - if user_signed_in?
         = link_to new_player_path, class:"new_player" do
           ゲームスタート
+    .made-player
+      - if user_signed_in?
+        - if @player.present?
+          - @player.each do |player|
+            .made-player__name
+              = player.name
+              = player.position
+              = "#{player.dominant_throw}投#{player.dominant_batting}打"
+              = link_to new_player_total_record_path(player.id) do
+                詳細
+              = link_to player_path(player.id), method: :delete do
+                削除
+        - else
+          作成した選手はいません
 

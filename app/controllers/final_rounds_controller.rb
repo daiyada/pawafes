@@ -43,6 +43,13 @@ class FinalRoundsController < ApplicationController
   end
 
   def lost_record
+    FinalRound.create(
+      opponent: "敗退",
+      supporter: "敗退",
+      supporter_mood: "敗退",
+      horisugi_doll: "敗退",
+      player_id: params[:player_id]
+    )
     FinalRoundRecord.create(
       take_part_in: "出場なし", 
       point_difference: -100,
@@ -61,7 +68,6 @@ class FinalRoundsController < ApplicationController
       fly_liner_out: 0,
       roller: 0,
       double_play: 0,
-      wagama_order: 0,
       muscle: 0,
       agile: 0,
       technique: 0,
