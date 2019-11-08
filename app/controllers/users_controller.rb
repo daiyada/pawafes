@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :move_to_index, except: :index
 
   def index
-    @player = Player.where(user_id: current_user.id)
+    @player = Player.where(user_id: current_user&.id)
   end
 
   private
