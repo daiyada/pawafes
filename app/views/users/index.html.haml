@@ -1,32 +1,47 @@
 .wrapper
   .wrapper__top
-    - unless user_signed_in?
-      = link_to new_user_registration_path, class:"new_user_registration" do
-        新規登録
-      = link_to new_user_session_path, class:"new_user_session" do
-        ログイン
-    - if user_signed_in?
-      = link_to destroy_user_session_path, class:"destroy_user_session" do
-        ログアウト
-  .wrapper__content
-    パワフェス
-    .game_start
-      - if user_signed_in?
-        = link_to new_player_path, class:"new_player" do
-          ゲームスタート
-    .made-player
-      - if user_signed_in?
-        - if @player.present?
-          %strong 作成選手一覧
-          - @player.each do |player|
-            .made-player__name
-              = player.name
-              = player.position
-              = "#{player.dominant_throw}投#{player.dominant_batting}打"
-              = link_to new_player_total_record_path(player.id) do
-                詳細
-              = link_to player_path(player.id), method: :delete, data: {confirm: "本当に削除しますか？"} do
-                削除
-        - else
-          作成した選手はいません
+    .wrapper__top__box
+      .wrapper__top__box__text
+        パワフェス " 極 "
+        .wrapper__top__box__text__sub
+          〜最強選手を作ろう〜
+      .wrapper__top__box__button
+        - unless user_signed_in?
+          = link_to new_user_registration_path, class:"new_user_registration" do
+            新規登録
+          = link_to new_user_session_path, class:"new_user_session" do
+            ログイン
+        - if user_signed_in?
+          = link_to destroy_user_session_path, method: :delete, class:"destroy_user_session" do
+            ログアウト
+  .wrapper__back
+    .wrapper__back__content
+      .wrapper__back__content__top
+        〜 メニュー 〜
+      .wrapper__back__content__inner
+        .wrapper__back__content__inner__method
+          = link_to method_users_path, class: "method_button" do
+            使い方
+        .wrapper__back__content__inner__start
+          - if user_signed_in?
+            = link_to new_player_path, class:"new_player" do
+              ゲームスタート
+    .wrapper__back__content
+      .wrapper__back__content__top
+        〜 作成選手一覧 〜
+      .wrapper__back__content__inner
+        - if user_signed_in?
+          - if @player.present?
+            %strong 作成選手一覧
+            - @player.each do |player|
+              .made-player__name
+                = player.name
+                = player.position
+                = "#{player.dominant_throw}投#{player.dominant_batting}打"
+                = link_to new_player_total_record_path(player.id) do
+                  詳細
+                = link_to player_path(player.id), method: :delete, data: {confirm: "本当に削除しますか？"} do
+                  削除
+          - else
+            作成した選手はいません
 

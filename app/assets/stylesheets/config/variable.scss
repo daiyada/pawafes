@@ -1,0 +1,25 @@
+@mixin middle_located() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin both_end_located() {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin even_placement() {
+  display: flex;
+  justify-content: space-around;
+}
+
+@mixin delete_link_gray() {
+  color: #555555;
+  text-decoration: none;
+}
+
+@mixin delete_link_white() {
+  color: #FFFFFF;
+  text-decoration: none;
+}
