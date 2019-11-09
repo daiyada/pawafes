@@ -68,3 +68,7 @@ gem 'jquery-rails'
 gem 'pry-rails'
 gem 'font_awesome5_rails'
 gem 'fog-aws'
+
+group :production do
+  gem 'unicorn', '5.4.1'
+end
