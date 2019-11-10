@@ -42,7 +42,6 @@
         }
         .new_user_session:hover{
           background-color: #1CD2FF;
-          translate: background-color;
         }
         .destroy_user_session{
           background-color: #D65F4C;
@@ -64,7 +63,7 @@
       &__content{
         background-color: #FFFFFF;
         width: 1000px;
-        margin: 10px auto;
+        margin: 10px auto 0 auto;
         padding: 10px 20px;
         box-sizing: border-box;
         &__top{
@@ -96,7 +95,6 @@
                 
                 &__middle{
                   width: 100%;
-                  
                 }
               }
             }
@@ -119,13 +117,14 @@
           }
         }
         &__button{
-          margin: 20px auto;
+          margin: 20px auto 10px auto;
+
           color: #FFFFFF;
           background-color: #BBBBBB;
           width: 300px;
           padding: 10px 50px;
           border-radius: 30px;
-          text-align:center;
+          text-align: center;
           translate: background-color;
           .return_home{
             @include delete_link_white();
@@ -135,6 +134,11 @@
           background-color: #CCCCCC;
         }
       }
+    }
+    &__restback{
+      width: 100%;
+      background-color: #F5F5F5;
+      height: 50px;
     }
   }
 }
