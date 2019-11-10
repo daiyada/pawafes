@@ -9,35 +9,42 @@
     .wrapper__back__content
       .wrapper__back__content__top
         〜 選手登録 〜
-      .wrapper__back__content__box
-
-.new-player-wrapper
-  新規登録
-  .new-player-wrapper__registration
-    = form_with url: players_path(@player), method: :post, class: "registration" do |f|
-      名前
-      = f.text_field :name
-      ポジション
-      = f.select :position, {}, {}, class: "position" do
-        %option 投手
-        %option 捕手
-        %option 一塁手
-        %option 二塁手
-        %option 三塁手
-        %option 遊撃手
-        %option 外野手
-      投
-      = f.select :dominant_throw, {}, {}, class: "dominant_throw" do
-        %option 右
-        %option 左
-      打
-      = f.select :dominant_batting, {}, {}, class: "dominant_batting" do
-        %option 右
-        %option 左
-        %option 両
-      ゲームレベル
-      = f.select :level, {}, {}, class: "game-level" do
-        %option ルーキー
-        %option ノーマル
-        %option 達人
-      = f.submit "ゲームを始める", class: "game-start-button"
+      .wrapper__back__content__middle
+        = form_with url: players_path(@player), method: :post, class: "registration" do |f|
+          .wrapper__back__content__middle__form
+            .wrapper__back__content__middle__form__text
+              名前
+            = f.text_field :name, placeholder: "藤村甲子園", class: "wrapper__back__content__middle__form__field"
+          .wrapper__back__content__middle__form
+            .wrapper__back__content__middle__form__text
+              ポジション
+            = f.select :position, {}, {}, class: "selection" do
+              %option 投手
+              %option 捕手
+              %option 一塁手
+              %option 二塁手
+              %option 三塁手
+              %option 遊撃手
+              %option 外野手
+          .wrapper__back__content__middle__form
+            .wrapper__back__content__middle__form__text
+              投
+            = f.select :dominant_throw, {}, {}, class: "selection" do
+              %option 右
+              %option 左
+          .wrapper__back__content__middle__form
+            .wrapper__back__content__middle__form__text
+              打
+            = f.select :dominant_batting, {}, {}, class: "selection" do
+              %option 右
+              %option 左
+              %option 両
+          .wrapper__back__content__middle__form
+            .wrapper__back__content__middle__form__text
+              ゲームレベル
+            = f.select :level, {}, {}, class: "selection" do
+              %option ルーキー
+              %option ノーマル
+              %option 達人
+          .wrapper__back__content__middle__login
+            = f.submit "トーナメントへ", class: "wrapper__back__content__middle__login__button"
