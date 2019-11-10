@@ -60,12 +60,14 @@
       width: 100%;
       background-color: #F5F5F5;
       padding-top: 5px;
+      min-height: calc(100vh - 72px); 
       &__content{
         background-color: #FFFFFF;
         width: 1000px;
         margin: 10px auto 0 auto;
         padding: 10px 20px;
         box-sizing: border-box;
+        box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.15);
         &__top{
           font-size: 20px;
           font-weight: bold;
@@ -138,7 +140,6 @@
     &__restback{
       width: 100%;
       background-color: #F5F5F5;
-      height: 50px;
     }
   }
 }

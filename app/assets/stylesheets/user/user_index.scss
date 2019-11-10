@@ -1,0 +1,44 @@
+.wrapper__back__content{
+  &__box{
+    margin: 20px 0;
+    text-align: center;
+    &__method{
+      width: 400px;
+      margin:0 auto 15px auto;
+      padding: 5px 50px;
+      color: #1BBBFB;
+      border: solid 1px #1BBBFB;
+      border-radius: 30px;
+      translate: background-color;
+      .method-button{
+        color: #1BBBFB;
+        text-decoration: none;
+        translate: color;
+      }
+    }
+    &__method:hover{
+      background-color: rgba(28,200,255,0.3);
+    }
+    &__start{
+      width: 400px;
+      margin: 15px auto 0 auto;
+      padding: 5px 50px;
+      color: #FFFFFF;
+      background-color: #1BBBFB;
+      border-radius: 30px;
+      translate: background-color;
+      .start-button{
+        @include delete_link_white();
+      }
+    }
+    &__start:hover{
+      background-color: #1CD2FF;
+    }
+  }
+}
+
+.wrapper__restback{
+  width: 100%;
+  height: 100%;
+  background-color: #F5F5F5;
+}

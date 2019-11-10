@@ -1,0 +1,15 @@
+.wrapper__back__content__middle__login{
+  margin-top: 20px;
+  &__button{
+    width: 100%;
+    border: none;
+    background-color: #1BBBFB;
+    color: #FFFFFF;
+    padding: 5px 30px;
+    border-radius: 40px;
+    translate: background-color;
+  }
+  &__button:hover{
+    background-color: #1CD2FF;
+  }
+}

@@ -1,25 +1,65 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :nickname
-    %br/
-    = f.text_field :nickname, autofocus: true
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.wrapper
+  .wrapper__top
+    .wrapper__top__box
+      .wrapper__top__box__text
+        パワフェス " 極 "
+        .wrapper__top__box__text__sub
+          〜最強選手を作ろう〜
+      .wrapper__top__box__button
+        = link_to new_user_session_path, class:"new_user_session" do
+          ログイン
+  .wrapper__back
+    .wrapper__back__content
+      .wrapper__back__content__top
+        〜 新規登録 〜
+      .wrapper__back__content__middle
+        = render "devise/shared/error_messages", resource: resource
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          .wrapper__back__content__middle__form
+            .wrapper__back__content__middle__form__text
+              ニックネーム
+            = f.text_field :nickname, autofocus: true, placeholder: "山田太郎", class: "wrapper__back__content__middle__form__field"
+          .wrapper__back__content__middle__form
+            .wrapper__back__content__middle__form__text
+              メールアドレス
+            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "yamada@yamada.com", class: "wrapper__back__content__middle__form__field"
+          .wrapper__back__content__middle__form
+            .wrapper__back__content__middle__form__text
+              パスワード
+            = f.password_field :password, autocomplete: "new-password", placeholder: "半角英数字8文字以上", class: "wrapper__back__content__middle__form__field"
+          .wrapper__back__content__middle__form
+            .wrapper__back__content__middle__form__text
+              パスワード確認
+            = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "同上", class: "wrapper__back__content__middle__form__field"
+          .wrapper__back__content__middle__registration
+            = f.submit "登録", class: "wrapper__back__content__middle__registration__button"
+
+
+
+
+
+
+-# = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+-#   = render "devise/shared/error_messages", resource: resource
+-#   .field
+-#     = f.label :nickname
+-#     %br/
+-#     = f.text_field :nickname, autofocus: true
+-#   .field
+-#     = f.label :email
+-#     %br/
+-#     = f.email_field :email, autofocus: true, autocomplete: "email"
+-#   .field
+-#     = f.label :password
+-#     - if @minimum_password_length
+-#       %em
+-#         (#{@minimum_password_length} characters minimum)
+-#     %br/
+-#     = f.password_field :password, autocomplete: "new-password"
+-#   .field
+-#     = f.label :password_confirmation
+-#     %br/
+-#     = f.password_field :password_confirmation, autocomplete: "new-password"
+-#   .actions
+-#     = f.submit "Sign up"
+-# = render "devise/shared/links"
