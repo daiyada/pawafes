@@ -18,30 +18,48 @@
     .wrapper__back__content
       .wrapper__back__content__top
         〜 メニュー 〜
-      .wrapper__back__content__inner
-        .wrapper__back__content__inner__method
-          = link_to method_users_path, class: "method_button" do
+      .wrapper__back__content__box
+        .wrapper__back__content__box__method
+          = link_to method_users_path, class: "method-button" do
             使い方
-        .wrapper__back__content__inner__start
+        .wrapper__back__content__box__start
           - if user_signed_in?
-            = link_to new_player_path, class:"new_player" do
+            = link_to new_player_path, class:"start-button" do
               ゲームスタート
     .wrapper__back__content
       .wrapper__back__content__top
         〜 作成選手一覧 〜
-      .wrapper__back__content__inner
+      .wrapper__back__content__box2
         - if user_signed_in?
           - if @player.present?
-            %strong 作成選手一覧
-            - @player.each do |player|
-              .made-player__name
-                = player.name
-                = player.position
-                = "#{player.dominant_throw}投#{player.dominant_batting}打"
-                = link_to new_player_total_record_path(player.id) do
-                  詳細
-                = link_to player_path(player.id), method: :delete, data: {confirm: "本当に削除しますか？"} do
-                  削除
+            %table.wrapper__back__content__box2__table
+              %tr.wrapper__back__content__box2__table__row
+                %th.wrapper__back__content__box2__table__row__number No.
+                %th.wrapper__back__content__box2__table__row__name 選手名
+                %th.wrapper__back__content__box2__table__row__position ポジション
+                %th.wrapper__back__content__box2__table__row__dominant 投打
+                %th.wrapper__back__content__box2__table__row__button　
+                %th.wrapper__back__content__box2__table__row__button　
+              - @player.each do |player|
+                - @number += 1
+                %tr.wrapper__back__content__box2__table__row
+                  %th.wrapper__back__content__box2__table__row__num-ele
+                    = @number
+                  %th.wrapper__back__content__box2__table__row__name-ele
+                    = player.name
+                  %th.wrapper__back__content__box2__table__row__posi-ele
+                    = player.position
+                  %th.wrapper__back__content__box2__table__row__domi-ele
+                    = "#{player.dominant_throw}投#{player.dominant_batting}打"
+                  %th.wrapper__back__content__box2__table__row__show-button
+                    = link_to new_player_total_record_path(player.id), class: "show-button" do
+                      詳細
+                  %th.wrapper__back__content__box2__table__row__delete-button
+                    = link_to player_path(player.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "delete-button" do
+                      削除
           - else
             作成した選手はいません
+        - else
+          新規登録／ログインしてゲームを始めよう
+  .wrapper__restback
 

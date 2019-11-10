@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :move_to_index, except: :index
 
   def index
+    @number = 0
     @player = Player.where(user_id: current_user&.id)
   end
 

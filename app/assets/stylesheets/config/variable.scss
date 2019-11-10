@@ -23,3 +23,16 @@
   color: #FFFFFF;
   text-decoration: none;
 }
+
+@mixin table_element(){
+  height: 30px;
+  text-align: center;
+  background-color: #DDDDDD;
+  border-bottom: double 1px #222222;
+}
+
+@mixin table_record(){
+  height: 30px;
+  text-align: center;
+  border-bottom: double 1px #222222;
+}
