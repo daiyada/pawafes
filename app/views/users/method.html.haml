@@ -1,0 +1,103 @@
+.wrapper
+  .wrapper__top
+    .wrapper__top__box
+      .wrapper__top__box__text
+        パワフェス " 極 "
+        .wrapper__top__box__text__sub
+          〜最強選手を作ろう〜
+      .wrapper__top__box__button
+        - unless user_signed_in?
+          = link_to new_user_registration_path, class:"new_user_registration" do
+            新規登録
+          = link_to new_user_session_path, class:"new_user_session" do
+            ログイン
+        - if user_signed_in?
+          = link_to destroy_user_session_path, method: :delete, class:"destroy_user_session" do
+            ログアウト
+  .wrapper__back
+    .wrapper__back__content
+      .wrapper__back__content__top
+        〜 使い方 〜
+      .wrapper__back__content__inner
+        .wrapper__back__content__inner__box
+          .wrapper__back__content__inner__box__text
+            .wrapper__back__content__inner__box__text__title
+              画面1
+            .wrapper__back__content__inner__box__text__content
+              1.　選手名を記入
+              %br
+              2.　投打を選択
+              %br
+              3.　ポジションを選択
+          .wrapper__back__content__inner__box__img
+            = image_tag "/sample.jpg", class: "sample"
+        .wrapper__back__content__inner__box
+          .wrapper__back__content__inner__box__text
+            .wrapper__back__content__inner__box__text__title
+              画面2
+            .wrapper__back__content__inner__box__text__content
+              1.　対戦相手を選択
+              %br
+              2.　マネージャーを選択
+              %br
+              3.　天候を選択(※2~4回戦のみ)
+              %br
+              4.　お助けアイテム(堀杉くんアイテム)の有無を選択
+          .wrapper__back__content__inner__box__img
+            = image_tag "/sample.jpg", class: "sample"
+        .wrapper__back__content__inner__box
+          .wrapper__back__content__inner__box__text
+            .wrapper__back__content__inner__box__text__title
+              画面3
+            .wrapper__back__content__inner__box__text__content
+              .wrapper__back__content__inner__box__text__content__top
+                1.　自操作での成績を記入
+              .wrapper__back__content__inner__box__text__content__middle
+                .wrapper__back__content__inner__box__text__content__left
+                  【総合】
+                  %br
+                  ・得失点差　・失点　
+                  %br
+                  ・我間マネのお言いつけのクリア
+                  %br
+                  （※我間をマネージャーに選択した時に限る）
+                  %br
+                  【野手操作時】
+                  %br
+                  ・ヒット　・二塁打　・三塁打　・本塁打　
+                  %br
+                  ・犠打　・犠飛　・盗塁
+                  %br
+                  【投手操作時】
+                  %br
+                  ・登板回数　・ストレート系でアウト
+                  %br
+                  ・変化球でアウト　・奪三振　・フライアウト
+                  %br
+                  ・ゴロアウト　・併殺
+                .wrapper__back__content__inner__box__text__content__top
+                  2.　勝敗の決まり方
+                  %br
+                  （得失点差）>０：勝利
+                  %br
+                  （得失点差）≤０：敗北
+                  %br
+                  ※引き分けは敗退扱いになります
+          .wrapper__back__content__inner__box__img
+            = image_tag "/sample.jpg", class: "sample"
+        .wrapper__back__content__inner__bottom
+          勝ち続ければ5戦連続で画面１〜３を繰り返す
+        .wrapper__back__content__inner__box
+          .wrapper__back__content__inner__box__text
+            .wrapper__back__content__inner__box__text__title
+              画面4
+            .wrapper__back__content__inner__box__text__content
+              最終獲得ポイントの確認
+          .wrapper__back__content__inner__box__img
+            = image_tag "/sample.jpg", class: "sample"
+      .wrapper__back__content__button
+        = link_to root_path, class: "return_home" do
+          ホームに戻る
+  .wrapper__restback
+    %br
+    %br

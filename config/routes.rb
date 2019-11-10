@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   root "users#index"
+  resources :users, only: :index do
+    collection do
+      get "method" => "users#method"
+    end
+  end
   resources :players, only: [:new, :create, :destroy] do
     resources :first_rounds, only: [:new, :create] do
       collection do

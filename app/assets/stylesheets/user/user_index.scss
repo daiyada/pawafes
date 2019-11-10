@@ -1,0 +1,101 @@
+.wrapper__back__content{
+  &__box{
+    margin: 20px 0;
+    text-align: center;
+    &__method{
+      width: 400px;
+      margin:0 auto 15px auto;
+      padding: 5px 50px;
+      color: #1BBBFB;
+      border: solid 1px #1BBBFB;
+      border-radius: 30px;
+      translate: background-color;
+      .method-button{
+        color: #1BBBFB;
+        text-decoration: none;
+        translate: color;
+      }
+    }
+    &__method:hover{
+      background-color: rgba(28,200,255,0.3);
+    }
+    &__start{
+      width: 400px;
+      margin: 15px auto 0 auto;
+      padding: 5px 50px;
+      color: #FFFFFF;
+      background-color: #1BBBFB;
+      border-radius: 30px;
+      translate: background-color;
+      .start-button{
+        @include delete_link_white();
+      }
+    }
+    &__start:hover{
+      background-color: #1CD2FF;
+    }
+  }
+  &__box2{
+    margin: 20px 0;
+    @include middle_located();
+    &__table{
+      width: 600px;
+      &__row{
+        &__number{
+          @include table_element();
+        }
+        &__name{
+          @include table_element();
+        }
+        &__position{
+          @include table_element();
+        }
+        &__dominant{
+          @include table_element();
+        }
+        &__button{
+          @include table_element();
+        }
+        &__num-ele{
+          @include table_record();
+        }
+        &__name-ele{
+          @include table_record();
+        }
+        &__posi-ele{
+          @include table_record();
+        }
+        &__domi-ele{
+          @include table_record();
+        }
+        &__show-button{
+          @include table_record();
+          .show-button{
+            @include delete_link_white();
+            color: #1BBBFB;
+            translate: color;
+          }
+          .show-button:hover{
+            color: #127AA3;
+          }
+        }
+        &__delete-button{
+          @include table_record();
+          .delete-button{
+            @include delete_link_white();
+            color: #D65F4C;
+          }
+          .delete-button:hover{
+            color: #A21C17;
+          }
+        }
+      }
+    }
+  }
+}
+
+.wrapper__restback{
+  width: 100%;
+  height: 100%;
+  background-color: #F5F5F5;
+}
