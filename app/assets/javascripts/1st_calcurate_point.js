@@ -21,7 +21,7 @@ $(document).on("turbolinks:load", function(){
       } else {
         var level_coeffi = 0.5
       }
-      maxActionValue = 160 * level_coeffi;  // 何回戦かにより変化
+      maxActionValue = 150 * level_coeffi;  // 何回戦かにより変化
       // 筋力試合前データ
       var muscle_base = data.muscle.muscle_base_point;
       var muscle_action = data.muscle.muscle_action_point;
