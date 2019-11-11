@@ -21,7 +21,7 @@ $(document).on("turbolinks:load", function(){
       } else {
         var level_coeffi = 0.5
       }
-      maxActionValue = 160 * level_coeffi;  // 何回戦かにより変化
+      maxActionValue = 170 * level_coeffi;  // 何回戦かにより変化
       // 筋力試合前データ
       var muscle_base = data.muscle.muscle_base_point;
       var muscle_action = data.muscle.muscle_action_point;
@@ -207,6 +207,7 @@ $(document).on("turbolinks:load", function(){
       } else {
         wagama_coeffi = 1.0;
       }
+      
       // 獲得ポイント
       // 筋力
       // ベース値×ベース係数
@@ -227,7 +228,7 @@ $(document).on("turbolinks:load", function(){
       // MAX値
       var leMaxMusPoint = "/" + Math.floor(BaseMuscle + maxActionValue);
       var MaxMusPoint = Math.floor(BaseMuscle + maxActionValue);
-
+      debugger;
       // 敏捷
       // ベース値×ベース係数
       var BaseAgile = agile_base * part_coeffi;
@@ -307,7 +308,7 @@ $(document).on("turbolinks:load", function(){
       // MAX値
       var leMaxSpiPoint = "/" + Math.floor(BaseSpirit + maxActionValue);
       var MaxSpiPoint = Math.floor(BaseSpirit + maxActionValue);
-
+      
       if (MusPoint == MaxMusPoint){
         $('#muscle-point').css("color", "#D65F4C")
       }
@@ -355,7 +356,6 @@ $(document).on("turbolinks:load", function(){
       spiritElement.innerHTML = leMaxSpiPoint;
       var resultElement = document.getElementById('result');
       resultElement.innerHTML = result;
-
     })
     .fail(function(){
       alert("エラー");

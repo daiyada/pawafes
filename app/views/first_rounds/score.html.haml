@@ -93,12 +93,12 @@
             .wrapper__back__content__top__box3__left__form
               .wrapper__back__content__top__box3__left__form__text
                 失点
-              = f.number_field :lost_point, id: "lost_point", class: "game-data", value: 0
+              = f.number_field :lost_point, id: "lost_point", class: "game-data", value: 0, min: 0
             - if @supporter == "我間摩夕"
               .wrapper__back__content__top__box3__left__form
                 .wrapper__back__content__top__box3__left__form__text
                   お言いつけ
-                = f.select :wagama_order, {}, {id: "wagama_order", class: "game-data"} do
+                = f.select :wagama_order,{} ,{} , {id: "wagama_order", class: "game-data"} do
                   %option 成功
                   %option 失敗
           .wrapper__back__content__top__box3__center
