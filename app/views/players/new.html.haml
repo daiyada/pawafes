@@ -10,7 +10,7 @@
       .wrapper__back__content__top
         〜 選手登録 〜
       .wrapper__back__content__middle
-        = form_with url: players_path(@player), method: :post, class: "registration" do |f|
+        = form_with url: players_path(@user), method: :post, class: "registration" do |f|
           .wrapper__back__content__middle__form
             .wrapper__back__content__middle__form__text
               名前

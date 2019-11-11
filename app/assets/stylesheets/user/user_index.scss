@@ -19,6 +19,9 @@
     &__method:hover{
       background-color: rgba(28,200,255,0.3);
     }
+    &__method:focus{
+      outline: none;
+    }
     &__start{
       width: 500px;
       line-height: 35px;
@@ -33,6 +36,9 @@
     }
     &__start:hover{
       background-color: #1CD2FF;
+    }
+    &__start:focus{
+      outline: none;
     }
   }
   &__box2{

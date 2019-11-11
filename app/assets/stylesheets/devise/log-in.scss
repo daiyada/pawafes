@@ -12,4 +12,7 @@
   &__button:hover{
     background-color: #1CD2FF;
   }
+  &__button:focus{
+    outline: none;
+  }
 }

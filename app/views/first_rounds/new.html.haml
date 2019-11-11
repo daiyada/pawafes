@@ -1,26 +1,68 @@
-.first-round-wrap
-  1回線
-  ユーザー名
-  = current_user.nickname
-  選手名
-  = @player.name
-  レベル
-  = @player.level
-  .first-round-wrap__content
-    試合前設定
-    = form_with url: player_first_rounds_path(@player), method: :post do |f|
-      相手チーム
-      = f.select :opponent, @RoundTeams
-      マネージャー
-      = f.select :supporter, @managers
-      マネージャーの機嫌
-      = f.select :supporter_mood do
-        %option ★☆☆
-        %option ★★☆
-        %option ★★★
-      掘杉くん人形
-      = f.select :horisugi_doll do
-        %option 無
-        %option 有
-      = f.submit :"設定する"
+.wrapper
+  .wrapper__top
+    .wrapper__top__box
+      .wrapper__top__box__text
+        パワフェス " 極 "
+        .wrapper__top__box__text__sub
+          〜最強選手を作ろう〜
+  .wrapper__back
+    .wrapper__back__content
+      .wrapper__back__content__top
+        〜 1回戦　試合前設定 〜
+      .wrapper__back__content__middle
+        .wrapper__back__content__middle__title
+          選手情報
+        .wrapper__back__content__middle__player
+          .wrapper__back__content__middle__player__regi
+            .wrapper__back__content__middle__player__regi__text
+              選手名
+            .wrapper__back__content__middle__player__regi__center
+              ：
+            .wrapper__back__content__middle__player__regi__data
+              = @player.name
+          .wrapper__back__content__middle__player__regi
+            .wrapper__back__content__middle__player__regi__text
+              ポジション
+            .wrapper__back__content__middle__player__regi__center
+              ：
+            .wrapper__back__content__middle__player__regi__data
+              = @player.position
+          .wrapper__back__content__middle__player__regi
+            .wrapper__back__content__middle__player__regi__text
+              投打
+            .wrapper__back__content__middle__player__regi__center
+              ：
+            .wrapper__back__content__middle__player__regi__data
+              = "#{@player.dominant_throw}投　#{@player.dominant_throw}打"
+          .wrapper__back__content__middle__player__regi
+            .wrapper__back__content__middle__player__regi__text
+              レベル
+            .wrapper__back__content__middle__player__regi__center
+              ：
+            .wrapper__back__content__middle__player__regi__data
+              = @player.level
+        = form_with url: player_first_rounds_path(@player), method: :post do |f|
+          .wrapper__back__content__middle__form
+            .wrapper__back__content__middle__form__text
+              相手チーム
+            = f.select :opponent, @RoundTeams, {}, class: "selection"
+          .wrapper__back__content__middle__form
+            .wrapper__back__content__middle__form__text
+              マネージャー
+            = f.select :supporter, @managers, {}, class: "selection"
+          .wrapper__back__content__middle__form
+            .wrapper__back__content__middle__form__text
+              マネージャーの機嫌
+            = f.select :supporter_mood, {}, {}, class: "selection" do
+              %option ★☆☆
+              %option ★★☆
+              %option ★★★
+          .wrapper__back__content__middle__form
+            .wrapper__back__content__middle__form__text
+              掘杉くん人形
+            = f.select :horisugi_doll, {}, {}, class: "selection" do
+              %option 無
+              %option 有
+          .wrapper__back__content__middle__login
+            = f.submit "試合へ", class: "wrapper__back__content__middle__login__button"
   
