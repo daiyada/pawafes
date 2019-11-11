@@ -1,62 +1,105 @@
-.total-record
-  結果
-.total-record__info
-  選手登録情報
-  .total-record__info__name
-    選手名：
-    = @name
-  .total-record__info__dominant
-    = "#{@throw}投#{@batting}打"
-  .total-record__info__position
-    ポジション：
-    = @position
-  %table
-    %tr
-      %th
-      %th 筋力
-      %th 敏捷
-      %th 技術
-      %th 変化球
-      %th 精神
-    %tr
-      %th 1回戦
-      - @fir_value.each do |value|
-        %td
-          = value
-    %tr
-      %th 2回戦
-      - @sec_value.each do |value|
-        %td
-          = value
-    %tr
-      %th 3回戦
-      - @thi_value.each do |value|
-        %td
-          = value
-    %tr
-      %th 4回戦
-      - @fou_value.each do |value|
-        %td
-          = value
-    %tr
-      %th 準決勝
-      - @sem_value.each do |value|
-        %td
-          = value
-    %tr
-      %th 決勝
-      - @fin_value.each do |value|
-        %td
-          = value
-    %tr
-      %th 計
-      - @total_value.each do |value|
-        %th
-          = value
-  
-.total-return
-  = link_to player_total_records_path, method: :post do
-    ホームへ
-.total-delete
-  = link_to player_path(@player), method: :delete, data: {confirm: "本当に削除しますか？"} do
-    削除
+.wrapper
+  .wrapper__top
+    .wrapper__top__box
+      .wrapper__top__box__text
+        パワフェス " 極 "
+        .wrapper__top__box__text__sub
+          〜最強選手を作ろう〜
+  .wrapper__back
+    .wrapper__back__content
+      .wrapper__back__content__top
+        〜 結果 〜
+      .wrapper__back__content__middles
+        .wrapper__back__content__middles__top
+          選手情報
+        .wrapper__back__content__middles__contents
+          .wrapper__back__content__middles__contents__info
+            = "選手名：#{@name}"
+          .wrapper__back__content__middles__contents__info
+            = "ポジション：#{@position}"
+          .wrapper__back__content__middles__contents__info
+            = "投打：#{@position}"
+          .wrapper__back__content__middles__contents__info
+            = "レベル：#{@player.level}"
+      .wrapper__back__content__middles2
+        .wrapper__back__content__middles2__top
+          獲得ポイント
+      %table.wrapper__back__content__table
+        %tr.wrapper__back__content__table__row
+          %th.wrapper__back__content__table__row__title 戦
+          %th.wrapper__back__content__table__row__title 相手チーム
+          %th.wrapper__back__content__table__row__title マネージャー
+          %th.wrapper__back__content__table__row__title 筋力
+          %th.wrapper__back__content__table__row__title 敏捷
+          %th.wrapper__back__content__table__row__title 技術
+          %th.wrapper__back__content__table__row__title 変化球
+          %th.wrapper__back__content__table__row__title 精神
+        %tr.wrapper__back__content__table__row
+          %th.wrapper__back__content__table__row__text １回戦
+          %td.wrapper__back__content__table__row__text
+            = @firopp
+          %td.wrapper__back__content__table__row__text
+            = @firmanager
+          - @fir_value.each do |value|
+            %td.wrapper__back__content__table__row__text
+              = value
+        %tr.wrapper__back__content__table__row
+          %th.wrapper__back__content__table__row__text ２回戦
+          %td.wrapper__back__content__table__row__text
+            = @secopp
+          %td.wrapper__back__content__table__row__text
+            = @secmanager
+          - @sec_value.each do |value|
+            %td.wrapper__back__content__table__row__text
+              = value
+        %tr.wrapper__back__content__table__row
+          %th.wrapper__back__content__table__row__text ３回戦
+          %td.wrapper__back__content__table__row__text
+            = @thiropp
+          %td.wrapper__back__content__table__row__text
+            = @thirmanager
+          - @thi_value.each do |value|
+            %td.wrapper__back__content__table__row__text
+              = value
+        %tr.wrapper__back__content__table__row
+          %th.wrapper__back__content__table__row__text ４回戦
+          %td.wrapper__back__content__table__row__text
+            = @fouropp
+          %td.wrapper__back__content__table__row__text
+            = @fourmanager
+          - @fou_value.each do |value|
+            %td.wrapper__back__content__table__row__text
+              = value
+        %tr.wrapper__back__content__table__row
+          %th.wrapper__back__content__table__row__text 準決勝
+          %td.wrapper__back__content__table__row__text
+            = @semiopp
+          %td.wrapper__back__content__table__row__text
+            = @semimanager
+          - @sem_value.each do |value|
+            %td.wrapper__back__content__table__row__text
+              = value
+        %tr.wrapper__back__content__table__row
+          %th.wrapper__back__content__table__row__text 決勝
+          %td.wrapper__back__content__table__row__text
+            = @finopp
+          %td.wrapper__back__content__table__row__text
+            = @finmanager
+          - @fin_value.each do |value|
+            %td.wrapper__back__content__table__row__text
+              = value
+        %tr.wrapper__back__content__table__row
+          %th.wrapper__back__content__table__row__textbold 計
+          %td.wrapper__back__content__table__row__textbold
+          %td.wrapper__back__content__table__row__textbold
+          - @total_value.each do |value|
+            %th.wrapper__back__content__table__row__textbold
+              = value.to_s(:delimited)
+    
+      .wrapper__back__content__middles3
+        .wrapper__back__content__middles3__button
+          = link_to player_total_records_path, method: :post, class: "return-home" do
+            ホームへ
+        .wrapper__back__content__middles3__button
+          = link_to player_path(@player), method: :delete, class: "delete-button", data: {confirm: "本当に削除しますか？"} do
+            削除

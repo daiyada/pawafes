@@ -3,9 +3,9 @@
     margin: 20px 0;
     text-align: center;
     &__method{
-      width: 400px;
+      width: 500px;
+      line-height: 35px;
       margin:0 auto 15px auto;
-      padding: 5px 50px;
       color: #1BBBFB;
       border: solid 1px #1BBBFB;
       border-radius: 30px;
@@ -19,10 +19,13 @@
     &__method:hover{
       background-color: rgba(28,200,255,0.3);
     }
+    &__method:focus{
+      outline: none;
+    }
     &__start{
-      width: 400px;
+      width: 500px;
+      line-height: 35px;
       margin: 15px auto 0 auto;
-      padding: 5px 50px;
       color: #FFFFFF;
       background-color: #1BBBFB;
       border-radius: 30px;
@@ -33,6 +36,9 @@
     }
     &__start:hover{
       background-color: #1CD2FF;
+    }
+    &__start:focus{
+      outline: none;
     }
   }
   &__box2{

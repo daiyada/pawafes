@@ -7,6 +7,18 @@ class TotalRecordsController < ApplicationController
     @throw = @player.dominant_throw
     @batting = @player.dominant_batting
     @position = @player.position
+    @firopp = FirstRound.find(params[:player_id]).opponent
+    @secopp = SecondRound.find(params[:player_id]).opponent
+    @thiropp = ThirdRound.find(params[:player_id]).opponent
+    @fouropp = FourthRound.find(params[:player_id]).opponent
+    @semiopp = SemiFinalRound.find(params[:player_id]).opponent
+    @finopp = FinalRound.find(params[:player_id]).opponent
+    @firmanager = FirstRound.find(params[:player_id]).supporter
+    @secmanager = SecondRound.find(params[:player_id]).supporter
+    @thirmanager = ThirdRound.find(params[:player_id]).supporter
+    @fourmanager = FourthRound.find(params[:player_id]).supporter
+    @semimanager = SemiFinalRound.find(params[:player_id]).supporter
+    @finmanager = FinalRound.find(params[:player_id]).supporter
   end
 
   def create

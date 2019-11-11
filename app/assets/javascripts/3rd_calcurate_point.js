@@ -1,40 +1,5 @@
 $(document).on("turbolinks:load", function(){
 
-  function buildtext(data){
-    var html = `<div class="max-point">
-                  <div class="max-muscle-text">
-                    筋力ポイント最大値：
-                  </div>
-                  <div class="max-muscle-point", id = "max-muscle-point">
-                  </div>
-
-                  <div class="max-agile-text">
-                    敏捷ポイント最大値：
-                  </div>
-                  <div class="max-agile-point", id = "max-agile-point">
-                  </div>
-
-                  <div class="max-technique-text">
-                    技術ポイント最大値：
-                  </div>
-                  <div class="max-technique-point", id = "max-technique-point">
-                  </div>
-
-                  <div class="max-change-text">
-                    変化球ポイント最大値：
-                  </div>
-                  <div class="max-change-point", id = "max-change-point">
-                  </div>
-
-                  <div class="max-spirit-text">
-                    精神ポイント最大値：
-                  </div>
-                  <div class="max-spirit-point", id = "max-spirit-point">
-                  </div>
-                </div>`
-    return html;
-  }
-
   $("#3rd-game-data").on("change",function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -47,7 +12,6 @@ $(document).on("turbolinks:load", function(){
       contentType: false
     })
     .done(function(data){
-      console.log(data);
       // ゲームレベル
       var level = data.level
       if (level == "達人"){
@@ -57,7 +21,7 @@ $(document).on("turbolinks:load", function(){
       } else {
         var level_coeffi = 0.5
       }
-      maxActionValue = 170 * level_coeffi;  // 何回戦かにより変化
+      maxActionValue = 160 * level_coeffi;  // 何回戦かにより変化
       // 筋力試合前データ
       var muscle_base = data.muscle.muscle_base_point;
       var muscle_action = data.muscle.muscle_action_point;
@@ -204,6 +168,13 @@ $(document).on("turbolinks:load", function(){
       } else if (point_differ <= -5){
         differ_coeffi = 0.5;
       };
+      if (point_differ < 0){
+        var result = "敗北";
+      } else if (point_differ > 0){
+        var result = "勝利";
+      } else {
+        var result = "引き分け";
+      };
       var lost_point = $("#lost_point").val();
       if (lost_point == 0){
         lost_coeffi = 1.0;
@@ -254,6 +225,7 @@ $(document).on("turbolinks:load", function(){
       // total((ベース値×ベース係数) + (行動値×行動係数))
       var MusPoint = Math.floor(BaseMuscle + MuscleActionValue);
       // MAX値
+      var leMaxMusPoint = "/" + Math.floor(BaseMuscle + maxActionValue);
       var MaxMusPoint = Math.floor(BaseMuscle + maxActionValue);
 
       // 敏捷
@@ -273,6 +245,7 @@ $(document).on("turbolinks:load", function(){
       // total((ベース値×ベース係数) + (行動値×行動係数))
       var AgiPoint = Math.floor(BaseAgile + AgileActionValue);
       // MAX値
+      var leMaxAgiPoint = "/" + Math.floor(BaseAgile + maxActionValue);
       var MaxAgiPoint = Math.floor(BaseAgile + maxActionValue);
 
       // 技術
@@ -292,6 +265,7 @@ $(document).on("turbolinks:load", function(){
       // total((ベース値×ベース係数) + (行動値×行動係数))
       var TecPoint = Math.floor(BaseTechnique + TechniqueActionValue);
       // MAX値
+      var leMaxTecPoint = "/" + Math.floor(BaseTechnique + maxActionValue);
       var MaxTecPoint = Math.floor(BaseTechnique + maxActionValue);
 
       // 変化
@@ -311,6 +285,7 @@ $(document).on("turbolinks:load", function(){
       // total((ベース値×ベース係数) + (行動値×行動係数))
       var ChaPoint = Math.floor(BaseChange + ChangeActionValue);
       // MAX値
+      var leMaxChaPoint = "/" + Math.floor(BaseChange + maxActionValue);
       var MaxChaPoint = Math.floor(BaseChange + maxActionValue);
 
       // 精神
@@ -330,22 +305,23 @@ $(document).on("turbolinks:load", function(){
       // total((ベース値×ベース係数) + (行動値×行動係数))
       var SpiPoint = Math.floor(BaseSpirit + SpiritActionValue);
       // MAX値
+      var leMaxSpiPoint = "/" + Math.floor(BaseSpirit + maxActionValue);
       var MaxSpiPoint = Math.floor(BaseSpirit + maxActionValue);
 
       if (MusPoint == MaxMusPoint){
-        $('#muscle-point').css("color", "red")
+        $('#muscle-point').css("color", "#D65F4C")
       }
       if (AgiPoint == MaxAgiPoint){
-        $('#agile-point').css("color", "red")
+        $('#agile-point').css("color", "#D65F4C")
       }
       if (TecPoint == MaxTecPoint){
-        $('#technique-point').css("color", "red")
+        $('#technique-point').css("color", "#D65F4C")
       }
       if (ChaPoint == MaxChaPoint){
-        $('#change-point').css("color", "red")
+        $('#change-point').css("color", "#D65F4C")
       }
       if (SpiPoint == MaxSpiPoint){
-        $('#spirit-point').css("color", "red")
+        $('#spirit-point').css("color", "#D65F4C")
       }
 
       $('#muscle-point').val("");
@@ -360,20 +336,26 @@ $(document).on("turbolinks:load", function(){
       $('#change-point').val(ChaPoint);
       $('#spirit-point').val(SpiPoint);
 
-      $(".game-max").empty();
-      var html = buildtext(data);
-      $(".game-max").append(html);
+      $("#max-muscle-point").empty();
+      $("#max-agile-point").empty();
+      $("#max-technique-point").empty();
+      $("#max-change-point").empty();
+      $("#max-spirit-point").empty();
+      $("#result").empty();
 
       var muscleElement = document.getElementById('max-muscle-point');
-      muscleElement.innerHTML = MaxMusPoint;
+      muscleElement.innerHTML = leMaxMusPoint;
       var agileElement = document.getElementById('max-agile-point');
-      agileElement.innerHTML = MaxAgiPoint;
+      agileElement.innerHTML = leMaxAgiPoint;
       var techniqueElement = document.getElementById('max-technique-point');
-      techniqueElement.innerHTML = MaxTecPoint;
+      techniqueElement.innerHTML = leMaxTecPoint;
       var changeElement = document.getElementById('max-change-point');
-      changeElement.innerHTML = MaxChaPoint;
+      changeElement.innerHTML = leMaxChaPoint;
       var spiritElement = document.getElementById('max-spirit-point');
-      spiritElement.innerHTML = MaxSpiPoint;
+      spiritElement.innerHTML = leMaxSpiPoint;
+      var resultElement = document.getElementById('result');
+      resultElement.innerHTML = result;
+
     })
     .fail(function(){
       alert("エラー");

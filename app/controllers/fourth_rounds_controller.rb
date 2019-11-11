@@ -23,6 +23,10 @@ class FourthRoundsController < ApplicationController
     end
   end
 
+  def score
+    @supporter = @round.supporter
+  end
+
   def catch_point
     respond_to do |format|
       format.json

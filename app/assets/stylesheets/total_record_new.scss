@@ -1,0 +1,82 @@
+.wrapper__back__content__middles{
+  width: 600px;
+  margin: 10px auto 0 auto;
+  padding: 0 15px;
+  
+  &__top{
+    font-weight: bold;
+    background-color: rgba(255, 255, 130, 0.5);
+    border-bottom: solid 1px #222222;
+    padding: 5px 15px;
+  }
+  &__contents{
+    @include both_end_located();
+    padding: 5px 15px;
+    background-color: rgba(255, 255, 130, 0.5);
+    &__info{
+      margin-left: 20px;
+    }
+  }
+}
+.wrapper__back__content__middles2{
+  width: 600px;
+  margin: 40px auto 0 auto;
+  padding: 0 15px;
+  &__top{
+    font-weight: bold;
+    border-bottom: solid 1px #222222;
+    padding: 5px 15px;
+  }
+}
+.wrapper__back__content__table{
+  width: 600px;
+  margin: 0 auto;
+  &__row{
+    &__title{
+      @include table_element();
+    }
+    &__text{
+      @include table_record();
+    }
+    &__textbold{
+      @include table_record();
+      font-weight: bold;
+    }
+  }
+}
+.wrapper__back__content__middles3{
+  margin: 25px 0;
+  &__button{
+    @include middle_located();
+    .return-home{
+      text-align: center;
+      @include delete_link_white();
+      width: 400px;
+      margin: 15px auto;
+      border: none;
+      background-color: #1BBBFB;
+      padding: 5px 30px;
+      border-radius: 40px;
+      translate: background-color;
+    }
+    .return-home:hover{
+      background-color: #1CD2FF;
+    }
+    .delete-button{
+      text-align: center;
+      @include delete_link_white();
+      width: 400px;
+      margin: 0 auto;
+      border: none;
+      background-color: #D65F4C;
+      padding: 5px 30px;
+      border-radius: 40px;
+      translate: background-color;
+    }
+    .delete-button:hover{
+      background-color: #FF725C;
+    }
+  }
+}
+
+
